@@ -39,7 +39,7 @@
       }
       .variant-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 20px;
       }
       .variant-card {
@@ -72,11 +72,17 @@
         gap: 8px;
         padding: 6px 12px;
         border-radius: 999px;
-        background: rgba(59, 130, 246, 0.12);
-        color: #1d4ed8;
         font-size: 14px;
         font-weight: 600;
         white-space: nowrap;
+      }
+      .variant-card__label--codex {
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+      }
+      .variant-card__label--gpt {
+        background: rgba(16, 185, 129, 0.12);
+        color: #047857;
       }
       .variant-card__title {
         font-size: 20px;
@@ -99,7 +105,19 @@
       .variant-card:hover .variant-card__arrow {
         transform: translateX(4px);
       }
+      .index > .container {
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
       @media (max-width: 1200px) {
+        .variant-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 800px) {
         .variant-grid {
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
@@ -128,20 +146,20 @@
         <section class="variant-grid">
           <a class="variant-card" href="Codex1.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Вариант 1 — стратегический фокус</h2>
-              <span class="variant-card__label">Codex</span>
+              <h2 class="variant-card__title">Codex — стратегический фокус для лидеров</h2>
+              <span class="variant-card__label variant-card__label--codex">Codex v1</span>
             </div>
             <p class="variant-card__description">
-              Подчеркивает прозрачность интеллектуального труда, с акцентом на кейсы крупных промышленных компаний и
-              структурированное объяснение возможностей платформы.
+              Подчеркивает прозрачность интеллектуального труда, опирается на кейсы промышленности и показывает, как
+              управленцы получают управляемую картину изменений.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
           <a class="variant-card" href="Codex2.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Вариант 2 — операционная эффективность</h2>
-              <span class="variant-card__label">Codex</span>
+              <h2 class="variant-card__title">Codex — операционная эффективность по шагам</h2>
+              <span class="variant-card__label variant-card__label--codex">Codex v2</span>
             </div>
             <p class="variant-card__description">
               Делает акцент на процессах и автоматизации: описывает путь клиента, этапы внедрения и экономический эффект
@@ -150,10 +168,34 @@
             <span class="variant-card__arrow">→</span>
           </a>
 
+          <a class="variant-card" href="Codex3.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Codex — цифровой операционный контур</h2>
+              <span class="variant-card__label variant-card__label--codex">Codex v3</span>
+            </div>
+            <p class="variant-card__description">
+              Показывает Prodex как живую систему управления мышлением: синхронизирует команды, фиксирует вклад и
+              ускоряет внедрение улучшений без роста штата.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex4.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Codex — ночной режим цифрового интеллекта</h2>
+              <span class="variant-card__label variant-card__label--codex">Codex v4</span>
+            </div>
+            <p class="variant-card__description">
+              Визуализирует Prodex как тёмный дашборд для top-management: подчёркивает прозрачность данных и работу
+              ИИ-фасилитатора в корпоративных масштабах.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
           <a class="variant-card" href="GPT1.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Вариант 1 — инновационный ракурс</h2>
-              <span class="variant-card__label">GPT</span>
+              <h2 class="variant-card__title">GPT — инновационный ракурс команды</h2>
+              <span class="variant-card__label variant-card__label--gpt">GPT v1</span>
             </div>
             <p class="variant-card__description">
               Сфокусирован на роли ИИ и цифровых следов в управлении знаниями, подчёркивает гибкость платформы для разных
@@ -164,8 +206,8 @@
 
           <a class="variant-card" href="GPT2.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Вариант 2 — экосистема продукта</h2>
-              <span class="variant-card__label">GPT</span>
+              <h2 class="variant-card__title">GPT — экосистема продукта и сервисов</h2>
+              <span class="variant-card__label variant-card__label--gpt">GPT v2</span>
             </div>
             <p class="variant-card__description">
               Показывает Prodex как экосистему сервисов: от фреймов мышления до аналитики и сопровождения внедрения в
@@ -176,8 +218,8 @@
 
           <a class="variant-card" href="GPT3.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Вариант 3 — образовательный акцент</h2>
-              <span class="variant-card__label">GPT</span>
+              <h2 class="variant-card__title">GPT — образовательный акцент для HR</h2>
+              <span class="variant-card__label variant-card__label--gpt">GPT v3</span>
             </div>
             <p class="variant-card__description">
               Адаптирован под edtech-аудитории и корпоративное обучение, иллюстрирует, как Prodex помогает

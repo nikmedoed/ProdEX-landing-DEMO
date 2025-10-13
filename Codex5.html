@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prodex OS — Codex3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-bg: #f4f7fb;
+        --color-surface: #ffffff;
+        --color-text: #0f1f2b;
+        --color-muted: #5f6c80;
+        --color-accent: #1dbf73;
+        --color-accent-dark: #13955a;
+        --color-stroke: rgba(15, 31, 43, 0.08);
+        --shadow-soft: 0 16px 32px rgba(15, 31, 43, 0.08);
+        --radius-lg: 24px;
+        --radius-md: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        color: var(--color-text);
+        background: var(--color-bg);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(244, 247, 251, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--color-stroke);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        font-size: 0.95rem;
+      }
+
+      .navbar__logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .navbar__menu {
+        display: flex;
+        gap: 24px;
+        color: var(--color-muted);
+      }
+
+      .navbar__menu a {
+        padding-bottom: 6px;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s ease, border-bottom-color 0.2s ease;
+      }
+
+      .navbar__menu a:hover {
+        color: var(--color-text);
+        border-bottom-color: var(--color-accent);
+      }
+
+      .hero {
+        padding: 88px 0 72px;
+      }
+
+      .hero__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 48px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(29, 191, 115, 0.12);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--color-accent-dark);
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 18px 0 16px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        line-height: 1.15;
+      }
+
+      .hero__lead {
+        max-width: 520px;
+        font-size: 1.05rem;
+        color: var(--color-muted);
+        margin-bottom: 30px;
+      }
+
+      .hero__list {
+        margin: 0 0 36px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero__list li {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 12px;
+        align-items: center;
+        font-weight: 500;
+      }
+
+      .hero__list span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(29, 191, 115, 0.14);
+        color: var(--color-accent-dark);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .button--primary {
+        background: var(--color-accent);
+        color: #fff;
+        box-shadow: 0 14px 26px rgba(29, 191, 115, 0.28);
+      }
+
+      .button--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 30px rgba(29, 191, 115, 0.32);
+      }
+
+      .button--ghost {
+        border: 1px solid var(--color-stroke);
+        color: var(--color-text);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .button--ghost:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero__panel {
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        border: 1px solid var(--color-stroke);
+        box-shadow: var(--shadow-soft);
+        display: grid;
+        gap: 22px;
+      }
+
+      .hero__panel h3 {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.35rem;
+      }
+
+      .panel__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .panel__metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 16px;
+      }
+
+      .panel__metric {
+        background: rgba(29, 191, 115, 0.08);
+        border-radius: var(--radius-md);
+        padding: 16px;
+      }
+
+      .panel__metric strong {
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.35rem;
+      }
+
+      .panel__metric span {
+        color: var(--color-muted);
+        font-size: 0.86rem;
+      }
+
+      .panel__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .panel__tag {
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(15, 31, 43, 0.06);
+        font-size: 0.82rem;
+        color: var(--color-muted);
+      }
+
+      .metrics-strip {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+      }
+
+      .metrics-strip__item {
+        background: var(--color-surface);
+        border-radius: var(--radius-md);
+        padding: 18px 22px;
+        border: 1px solid var(--color-stroke);
+        box-shadow: 0 12px 24px rgba(15, 31, 43, 0.05);
+      }
+
+      .metrics-strip__item strong {
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 48px;
+      }
+
+      .section-heading h2 {
+        margin: 0 0 14px;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2rem, 3vw, 2.6rem);
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--color-muted);
+        max-width: 640px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(15, 31, 43, 0.06);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-muted);
+        font-weight: 600;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        background: var(--color-surface);
+        border-radius: var(--radius-md);
+        padding: 26px;
+        border: 1px solid var(--color-stroke);
+        box-shadow: 0 14px 26px rgba(15, 31, 43, 0.05);
+      }
+
+      .card h3 {
+        margin: 0 0 12px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.25rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--color-muted);
+      }
+
+      .split-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 36px;
+        align-items: start;
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 22px;
+        color: var(--color-muted);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline__item {
+        background: var(--color-surface);
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        border: 1px solid var(--color-stroke);
+        box-shadow: 0 10px 20px rgba(15, 31, 43, 0.05);
+        display: grid;
+        gap: 6px;
+      }
+
+      .timeline__item strong {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+      }
+
+      .cases {
+        background: #0f1f2b;
+        color: #f6f9fc;
+      }
+
+      .cases .pill {
+        background: rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .cases h2 {
+        color: #ffffff;
+      }
+
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .case-card {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+        padding: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+        display: grid;
+        gap: 12px;
+      }
+
+      .case-card strong {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+      }
+
+      .case-card p {
+        margin: 0;
+        color: rgba(246, 249, 252, 0.75);
+      }
+
+      .cta-final {
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        padding: 48px;
+        border: 1px solid var(--color-stroke);
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+      }
+
+      .cta-final h2 {
+        margin: 0 0 12px;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2rem, 3vw, 2.4rem);
+      }
+
+      .cta-final p {
+        margin: 0 0 28px;
+        color: var(--color-muted);
+      }
+
+      footer {
+        padding: 48px 0;
+        color: var(--color-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 720px) {
+        .navbar {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .hero {
+          padding: 72px 0 64px;
+        }
+
+        .hero__panel {
+          padding: 26px;
+        }
+
+        .panel__row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .panel__metrics {
+          width: 100%;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cta-final {
+          padding: 38px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <div class="navbar__logo">Prodex OS</div>
+        <nav class="navbar__menu">
+          <a href="#value">Преимущества</a>
+          <a href="#modules">Модули</a>
+          <a href="#adoption">Внедрение</a>
+          <a href="#cases">Кейсы</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__grid">
+          <div>
+            <span class="eyebrow">Codex3 · Управление знаниями и задачами</span>
+            <h1>Единая операционная система для команд интеллектуального труда</h1>
+            <p class="hero__lead">
+              Prodex OS объединяет стратегию, процессы и аналитику, помогая руководителям продуктовых и исследовательских команд сохранять контроль и ускорять прогресс без лишней бюрократии.
+            </p>
+            <ul class="hero__list">
+              <li><span>1</span>Цифровые регламенты, обеспечивающие единые стандарты качества</li>
+              <li><span>2</span>Управление бэклогом, спринтами и потоками задач в одном окне</li>
+              <li><span>3</span>Автоотчёты по загрузке и влиянию решений на ключевые метрики</li>
+            </ul>
+            <div class="cta-group">
+              <a class="button button--primary" href="#adoption">План внедрения</a>
+              <a class="button button--ghost" href="#cases">Посмотреть кейсы</a>
+            </div>
+          </div>
+          <aside class="hero__panel">
+            <div class="panel__row">
+              <h3>Панель руководителя</h3>
+              <span class="pill">Live</span>
+            </div>
+            <div class="panel__metrics">
+              <div class="panel__metric">
+                <strong>84%</strong>
+                <span>Своевременность релизов</span>
+              </div>
+              <div class="panel__metric">
+                <strong>12.4%</strong>
+                <span>Ускорение цикла решений</span>
+              </div>
+              <div class="panel__metric">
+                <strong>48</strong>
+                <span>Активные инициативы</span>
+              </div>
+              <div class="panel__metric">
+                <strong>6</strong>
+                <span>Команд в едином процессе</span>
+              </div>
+            </div>
+            <div>
+              <strong>Фокус недели</strong>
+              <p class="hero__lead" style="margin: 8px 0 0; font-size: 0.95rem; max-width: none;">
+                Завершить интеграцию пользовательских метрик в стратегическую панель и закрыть риски по перегрузке команды аналитики.
+              </p>
+            </div>
+            <div class="panel__tags">
+              <span class="panel__tag">Roadmap Q3</span>
+              <span class="panel__tag">Policy Automation</span>
+              <span class="panel__tag">AI Drafts</span>
+              <span class="panel__tag">Outcome Tracking</span>
+            </div>
+          </aside>
+        </div>
+        <div class="container metrics-strip">
+          <div class="metrics-strip__item">
+            <strong>+32%</strong>
+            <span>Рост скорости вывода инициатив на рынок</span>
+          </div>
+          <div class="metrics-strip__item">
+            <strong>−18%</strong>
+            <span>Снижение потерь из-за несогласованности процессов</span>
+          </div>
+          <div class="metrics-strip__item">
+            <strong>3 недели</strong>
+            <span>Средний срок запуска продвинутой аналитики</span>
+          </div>
+          <div class="metrics-strip__item">
+            <strong>24/7</strong>
+            <span>Прозрачность загрузки и рисков команд</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="value">
+        <div class="container">
+          <div class="section-heading">
+            <span class="pill">Почему компании выбирают Prodex</span>
+            <h2>Фокус на результатах, а не на ручном контроле</h2>
+            <p>
+              Codex3 объединяет стратегию, операционное управление и знания в единой платформе. Руководители видят полную картину, а команды работают в прозрачном и удобном рабочем пространстве.
+            </p>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Структурированная стратегия</h3>
+              <p>
+                Единый источник правды по целям, ключевым результатам и принятым решениям. Каждое изменение фиксируется и привязывается к бизнес-эффекту.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Управление операционным ритмом</h3>
+              <p>
+                Управление бэклогами, планами релизов и процессами согласований. Автоматизированные напоминания и контроль SLA для критичных задач.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Интеллектуальная аналитика</h3>
+              <p>
+                Строим дашборды влияния задач на продуктовые метрики, прогнозируем нагрузку и предлагаем сценарии оптимизации через ML-подсказки.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Командная дисциплина</h3>
+              <p>
+                Прозрачные роли, чек-листы и шаблоны, которые вшивают лучшие практики в ежедневную работу и сокращают время онбординга новичков.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="modules">
+        <div class="container">
+          <div class="section-heading">
+            <span class="pill">Что входит</span>
+            <h2>Модули Codex3</h2>
+            <p>
+              Мы собрали лучшие практики продуктовых и исследовательских команд в четыре ключевых блока. Каждый модуль можно разворачивать поэтапно и комбинировать под ваши процессы.
+            </p>
+          </div>
+          <div class="split-layout">
+            <div class="card">
+              <h3>Операционный контур</h3>
+              <ul class="list">
+                <li>Управление целями, инициативами и зависимостями</li>
+                <li>Гибридные бэклоги для разработки, аналитики и маркетинга</li>
+                <li>Автоматические реестр рисков и планов mitigation</li>
+                <li>Шаблоны ретроспектив, демо и статусных встреч</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Знания и политики</h3>
+              <ul class="list">
+                <li>Цифровые регламенты с отслеживанием актуальности</li>
+                <li>Библиотека лучших практик и исследований</li>
+                <li>AI-помощник для подготовки решений и FAQ</li>
+                <li>Единый onboarding для новых сотрудников</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Аналитический центр</h3>
+              <ul class="list">
+                <li>Мониторинг OKR и продуктовых метрик</li>
+                <li>Автоотчёты по прогрессу инициатив</li>
+                <li>Прогнозирование ресурсов и загрузки</li>
+                <li>Пул гипотез и экспериментов с AI-приоритизацией</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="adoption">
+        <div class="container">
+          <div class="section-heading">
+            <span class="pill">Как стартуем</span>
+            <h2>Прозрачный план внедрения</h2>
+            <p>
+              Вместе с вашей командой подбираем глубину автоматизации, переносим данные и обучаем сотрудников. Полный цикл занимает от четырёх до восьми недель.
+            </p>
+          </div>
+          <div class="split-layout">
+            <div class="timeline">
+              <div class="timeline__item">
+                <strong>Неделя 1</strong>
+                <span>Диагностика процессов, аудит данных, настройка базовой структуры.</span>
+              </div>
+              <div class="timeline__item">
+                <strong>Неделя 2–3</strong>
+                <span>Перенос артефактов, настройка модулей, запуск автоматизированных отчётов.</span>
+              </div>
+              <div class="timeline__item">
+                <strong>Неделя 4–5</strong>
+                <span>Онбординг команд, совместные сессии по адаптации шаблонов, подключение интеграций.</span>
+              </div>
+              <div class="timeline__item">
+                <strong>Неделя 6–8</strong>
+                <span>Оптимизация процессов, настройка ML-подсказок, фиксация целевых метрик.</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Команда поддержки</h3>
+              <p>
+                Выделенный engagement-менеджер, методолог и аналитик данных сопровождают внедрение, проводят регулярные сессии с руководителями и помогают удерживать дисциплину изменений.
+              </p>
+              <p style="margin-top: 18px; color: var(--color-muted);">
+                SLA на реакции — до 2 часов в рабочее время. В пакете — консультации по оптимизации процессов и расширенный набор шаблонов.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cases" id="cases">
+        <div class="container">
+          <div class="section-heading">
+            <span class="pill">Результаты клиентов</span>
+            <h2>Кейсы внедрения Prodex OS</h2>
+            <p>
+              Команды используют Codex3 для ускорения вывода продуктов и синхронизации распределённых команд. Приводим три типовых примера.
+            </p>
+          </div>
+          <div class="case-grid">
+            <article class="case-card">
+              <strong>Федеральный банк</strong>
+              <p>
+                6 продуктовых потоков объединены в единую стратегию. Время согласования изменений сократилось с 9 до 3 дней, точность планов релизов выросла до 93%.
+              </p>
+            </article>
+            <article class="case-card">
+              <strong>ИТ-компания 500+</strong>
+              <p>
+                Автоматизирован контроль рисков и загрузки аналитиков. Производительность команды выросла на 28%, а время на отчётность сократилось вдвое.
+              </p>
+            </article>
+            <article class="case-card">
+              <strong>Digital-агентство</strong>
+              <p>
+                Настроены модульные процессы для проектных и исследовательских команд. Новый проект запускается за 5 дней вместо 12, удовлетворённость клиентов +21 п.п.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="cta-final">
+            <h2>Готовы увидеть Prodex OS в действии?</h2>
+            <p>
+              Проведём демонстрацию с учётом ваших процессов, покажем сценарии автоматизации и рассчитаем экономический эффект для вашей организации.
+            </p>
+            <div class="cta-group" style="justify-content: center;">
+              <a class="button button--primary" href="mailto:hello@prodex.team">Запросить демо</a>
+              <a class="button button--ghost" href="#value">Скачать описание</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © Prodex OS, 2024. Интеллектуальная платформа для управления знаниями и операциями.
+      </div>
+    </footer>
+  </body>
+</html>
