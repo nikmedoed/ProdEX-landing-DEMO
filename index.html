@@ -18,12 +18,12 @@
           #f5f7fb;
       }
       .index {
-        padding: 0 0 120px;
+        padding: 48px 0 72px;
       }
       .index__header {
         text-align: center;
         max-width: 720px;
-        margin: 0 auto 0;
+        margin: 0 auto 40px;
       }
       .index__title {
         font-family: "Poppins", sans-serif;
@@ -39,22 +39,32 @@
       }
       .variant-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
       }
       .variant-card {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
         background: #ffffff;
         border-radius: 20px;
-        padding: 28px;
+        padding: 24px;
         box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
         text-decoration: none;
         color: inherit;
+        min-height: 0;
       }
       .variant-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+      }
+      .variant-card__heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
       }
       .variant-card__label {
         display: inline-flex;
@@ -66,12 +76,12 @@
         color: #1d4ed8;
         font-size: 14px;
         font-weight: 600;
-        margin-bottom: 16px;
+        white-space: nowrap;
       }
       .variant-card__title {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 600;
-        margin-bottom: 12px;
+        margin: 0;
       }
       .variant-card__description {
         font-size: 16px;
@@ -88,6 +98,11 @@
       }
       .variant-card:hover .variant-card__arrow {
         transform: translateX(4px);
+      }
+      @media (max-width: 1200px) {
+        .variant-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
       }
       @media (max-width: 640px) {
         .index {
@@ -112,8 +127,10 @@
 
         <section class="variant-grid">
           <a class="variant-card" href="Codex1.html">
-            <span class="variant-card__label">Codex</span>
-            <h2 class="variant-card__title">Вариант 1 — стратегический фокус</h2>
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Вариант 1 — стратегический фокус</h2>
+              <span class="variant-card__label">Codex</span>
+            </div>
             <p class="variant-card__description">
               Подчеркивает прозрачность интеллектуального труда, с акцентом на кейсы крупных промышленных компаний и
               структурированное объяснение возможностей платформы.
@@ -122,8 +139,10 @@
           </a>
 
           <a class="variant-card" href="Codex2.html">
-            <span class="variant-card__label">Codex</span>
-            <h2 class="variant-card__title">Вариант 2 — операционная эффективность</h2>
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Вариант 2 — операционная эффективность</h2>
+              <span class="variant-card__label">Codex</span>
+            </div>
             <p class="variant-card__description">
               Делает акцент на процессах и автоматизации: описывает путь клиента, этапы внедрения и экономический эффект
               для заказчика.
@@ -132,8 +151,10 @@
           </a>
 
           <a class="variant-card" href="GPT1.html">
-            <span class="variant-card__label">GPT</span>
-            <h2 class="variant-card__title">Вариант 1 — инновационный ракурс</h2>
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Вариант 1 — инновационный ракурс</h2>
+              <span class="variant-card__label">GPT</span>
+            </div>
             <p class="variant-card__description">
               Сфокусирован на роли ИИ и цифровых следов в управлении знаниями, подчёркивает гибкость платформы для разных
               команд.
@@ -142,8 +163,10 @@
           </a>
 
           <a class="variant-card" href="GPT2.html">
-            <span class="variant-card__label">GPT</span>
-            <h2 class="variant-card__title">Вариант 2 — экосистема продукта</h2>
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Вариант 2 — экосистема продукта</h2>
+              <span class="variant-card__label">GPT</span>
+            </div>
             <p class="variant-card__description">
               Показывает Prodex как экосистему сервисов: от фреймов мышления до аналитики и сопровождения внедрения в
               компаниях.
@@ -152,8 +175,10 @@
           </a>
 
           <a class="variant-card" href="GPT3.html">
-            <span class="variant-card__label">GPT</span>
-            <h2 class="variant-card__title">Вариант 3 — образовательный акцент</h2>
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Вариант 3 — образовательный акцент</h2>
+              <span class="variant-card__label">GPT</span>
+            </div>
             <p class="variant-card__description">
               Адаптирован под edtech-аудитории и корпоративное обучение, иллюстрирует, как Prodex помогает
               систематизировать развитие сотрудников.
