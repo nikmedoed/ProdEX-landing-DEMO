@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prodex OS — цифровой интеллект для команд</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #070815;
+        --bg-light: #0f1022;
+        --bg-card: rgba(24, 26, 47, 0.76);
+        --accent: #6c5cff;
+        --accent-soft: rgba(108, 92, 255, 0.18);
+        --accent-gradient: linear-gradient(135deg, #6c5cff 0%, #41e0ff 100%);
+        --text-primary: #f5f6ff;
+        --text-secondary: rgba(243, 245, 255, 0.72);
+        --border: rgba(151, 155, 205, 0.22);
+        --shadow-soft: 0 25px 70px rgba(13, 16, 40, 0.38);
+        --shadow-card: 0 18px 35px rgba(12, 14, 32, 0.4);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at top right, rgba(108, 92, 255, 0.12), transparent 55%),
+          radial-gradient(circle at 15% 20%, rgba(65, 224, 255, 0.1), transparent 55%),
+          var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+      }
+
+      header {
+        position: relative;
+        overflow: hidden;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(7, 8, 21, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 6vw;
+      }
+
+      .logo {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      .nav-links a {
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 48px;
+        padding: 120px 6vw 110px;
+        position: relative;
+        align-items: center;
+      }
+
+      .glow-orb {
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(108, 92, 255, 0.45), transparent 70%);
+        border-radius: 50%;
+        filter: blur(25px);
+        top: -100px;
+        right: 12%;
+        z-index: -1;
+      }
+
+      .hero-content h1 {
+        margin: 0 0 24px;
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(2.8rem, 5vw, 3.75rem);
+        line-height: 1.08;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 26px;
+      }
+
+      .hero-content p {
+        margin-bottom: 34px;
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        max-width: 520px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-bottom: 42px;
+      }
+
+      .button-primary,
+      .button-ghost {
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      }
+
+      .button-primary {
+        background: var(--accent-gradient);
+        box-shadow: 0 16px 35px rgba(108, 92, 255, 0.35);
+      }
+
+      .button-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 45px rgba(65, 224, 255, 0.35);
+      }
+
+      .button-ghost {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.02);
+        color: #ffffff;
+      }
+
+      .button-ghost:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        width: 100%;
+      }
+
+      .stat-card {
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow-card);
+      }
+
+      .stat-card span {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+      }
+
+      .stat-card strong {
+        font-size: 1.65rem;
+        font-weight: 700;
+      }
+
+      .hero-panel {
+        padding: 28px;
+        border-radius: 28px;
+        background: rgba(12, 14, 32, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .panel-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 1.1rem;
+      }
+
+      .pulse-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .pulse-indicator::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 8px var(--accent-soft);
+        animation: pulse 2.6s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .stream-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .stream-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(19, 21, 45, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .stream-item strong {
+        font-size: 1.05rem;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .stream-item span {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+
+      .tag {
+        display: inline-flex;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        background: rgba(108, 92, 255, 0.15);
+        color: #c7c8ff;
+      }
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding: 0 6vw;
+      }
+
+      .section-header {
+        max-width: 640px;
+      }
+
+      .section-header h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(2rem, 3.7vw, 2.8rem);
+        margin: 0 0 18px;
+      }
+
+      .section-header p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+      }
+
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      .value-card {
+        padding: 28px;
+        border-radius: 24px;
+        background: rgba(13, 14, 32, 0.72);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-card);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        background: rgba(108, 92, 255, 0.18);
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+      }
+
+      .value-card h3 {
+        margin: 0 0 14px;
+        font-size: 1.2rem;
+      }
+
+      .value-card p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .how-it-works {
+        background: linear-gradient(180deg, rgba(17, 18, 38, 0.95) 0%, rgba(11, 12, 28, 0.95) 100%);
+        border-radius: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        padding: 54px;
+        display: grid;
+        gap: 32px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .steps {
+        display: grid;
+        gap: 28px;
+      }
+
+      .step {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 70px 1fr;
+        align-items: start;
+      }
+
+      .step-number {
+        width: 70px;
+        height: 70px;
+        border-radius: 24px;
+        background: rgba(108, 92, 255, 0.12);
+        border: 1px solid rgba(108, 92, 255, 0.32);
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .step-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+      }
+
+      .step-body p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .cases-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .case-card {
+        padding: 26px;
+        border-radius: 24px;
+        background: rgba(10, 11, 24, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: var(--shadow-card);
+      }
+
+      .case-card h3 {
+        margin: 0 0 16px;
+      }
+
+      .case-metrics {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+
+      .metric {
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.8rem;
+        color: #d6d7ff;
+      }
+
+      .case-card p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .cta {
+        display: grid;
+        gap: 28px;
+        justify-items: center;
+        text-align: center;
+        padding: 90px 6vw 110px;
+        background: linear-gradient(135deg, rgba(108, 92, 255, 0.25), rgba(14, 15, 36, 0.96));
+      }
+
+      .cta h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(2.4rem, 4vw, 3rem);
+        margin: 0;
+      }
+
+      .cta p {
+        margin: 0;
+        color: rgba(245, 246, 255, 0.78);
+        max-width: 540px;
+        font-size: 1.05rem;
+      }
+
+      .cta .button-primary {
+        padding-inline: 36px;
+      }
+
+      footer {
+        padding: 36px 6vw 60px;
+        color: rgba(217, 219, 246, 0.6);
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      footer span {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .page {
+          gap: 90px;
+        }
+
+        .hero {
+          padding-top: 90px;
+        }
+
+        .how-it-works {
+          padding: 38px;
+        }
+
+        .step {
+          grid-template-columns: 1fr;
+        }
+
+        .step-number {
+          justify-self: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header id="top">
+        <nav>
+          <div class="nav-inner">
+            <a class="logo" href="#top">Prodex OS</a>
+            <div class="nav-links">
+              <a href="#why">Почему</a>
+              <a href="#flow">Поток</a>
+              <a href="#cases">Результаты</a>
+              <a href="#contact">Связаться</a>
+            </div>
+          </div>
+        </nav>
+        <div class="hero">
+          <div class="hero-content">
+            <span class="hero-eyebrow">Digital operating system</span>
+            <h1>Цифровой интеллект, который настраивает мышление команды на результат</h1>
+              <p>
+                Prodex OS превращает инициативы, знания и решения в прозрачный поток. Вы видите реальный вклад людей,
+                фокусируете команды и ускоряете внедрение улучшений без роста штата.
+              </p>
+            <div class="hero-actions">
+              <a class="button-primary" href="#contact">Получить демо</a>
+              <a class="button-ghost" href="#flow">Посмотреть, как работает</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <span>Скорость внедрения</span>
+                <strong>×4</strong>
+                <p>Быстрее запуска трансформационных проектов</p>
+              </div>
+              <div class="stat-card">
+                <span>ROI улучшений</span>
+                <strong>+210%</strong>
+                <p>Благодаря прозрачному вкладу и аналитике</p>
+              </div>
+              <div class="stat-card">
+                <span>Экономия времени</span>
+                <strong>12 ч</strong>
+                <p>Сокращение еженедельных синхронизаций</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="panel-header">
+              <div class="panel-title">Live cognitive stream</div>
+              <span class="pulse-indicator">online</span>
+            </div>
+            <div class="stream-list">
+              <div class="stream-item">
+                <div>
+                  <strong>Фокус: снижение потерь</strong>
+                  <span>Воронка идей → KPI → дорожная карта</span>
+                </div>
+                <span class="tag">Топ-менеджмент</span>
+              </div>
+              <div class="stream-item">
+                <div>
+                  <strong>AI-фасилитатор подсветил риски</strong>
+                  <span>Предложено 3 решения, экономия 18 млн ₽</span>
+                </div>
+                <span class="tag">Производство</span>
+              </div>
+              <div class="stream-item">
+                <div>
+                  <strong>Уровень вовлеченности 91%</strong>
+                  <span>34 активных участника, дедлайны соблюдены</span>
+                </div>
+                <span class="tag">R&D</span>
+              </div>
+            </div>
+            <div class="glow-orb" aria-hidden="true"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section" id="why">
+        <div class="section-header">
+          <h2>Почему интеллектуальным компаниям нужен Prodex</h2>
+          <p>
+            Когда скорость изменений больше ресурсов, критично видеть реальные процессы мышления. Prodex делает это
+            управляемым: фиксирует, усиливает, направляет.
+          </p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <div class="value-icon">🧭</div>
+            <h3>Оцифрованная стратегия</h3>
+            <p>От цели до действий — единая логика. Команды понимают контекст и быстрее собирают решения.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Совместное мышление</h3>
+            <p>Каждый вклад виден. AI-фасилитатор помогает задавать вопросы и удерживать фокус.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">📊</div>
+            <h3>Прозрачная аналитика</h3>
+            <p>Мгновенные дашборды по ROI, рискам, прогрессу внедрений — решение принимайте на данных.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">🛡️</div>
+            <h3>Корпоративная безопасность</h3>
+            <p>Изолированные пространства, контроль доступа и полная трассировка действий.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <div class="how-it-works">
+          <div class="section-header">
+            <h2>Как Prodex поддерживает цикл улучшений</h2>
+            <p>Встроенные фреймы TRIZ, Lean, TPS и AI-фасилитатор превращают идеи в измеримый результат.</p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">01</div>
+              <div class="step-body">
+                <h3>Оркестратор мышления</h3>
+                <p>Готовые сценарии стратегических и операционных сессий. Команды подключаются за 5 минут.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">02</div>
+              <div class="step-body">
+                <h3>Цифровой след решений</h3>
+                <p>Фиксация контекста, допущений, показателей. Ничего не теряется между уровнями управления.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">03</div>
+              <div class="step-body">
+                <h3>AI-наставник</h3>
+                <p>Подсказывает, где «узкое место», предлагает варианты улучшений и автоматизирует отчёты.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div="step-number">04</div>
+              <div class="step-body">
+                <h3>Единая аналитика</h3>
+                <p>Дашборды обновляются в реальном времени: вовлечённость, экономический эффект, прогресс внедрений.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="section-header">
+          <h2>Трансформации, которые уже происходят на Prodex</h2>
+          <p>От промышленности до digital — мы настраиваем мышление команд на измеримый результат.</p>
+        </div>
+        <div class="cases-grid">
+          <article class="case-card">
+            <h3>Автоинжиниринг</h3>
+            <div class="case-metrics">
+              <span class="metric">×6 быстрее пилоты</span>
+              <span class="metric">-38% потерь</span>
+            </div>
+            <p>Центр компетенций видит, где буксуют проекты. AI-фасилитатор подбирает экспертные решения и отвечает за
+            реализацию.</p>
+          </article>
+          <article class="case-card">
+            <h3>Ритейл-сеть</h3>
+            <div class="case-metrics">
+              <span class="metric">+25% NPS</span>
+              <span class="metric">90 дней → 21</span>
+            </div>
+            <p>Prodex объединяет офис и магазины. Решения принимаются на основе данных, KPI видны в моменте.</p>
+          </article>
+          <article class="case-card">
+            <h3>Hi-tech производство</h3>
+            <div class="case-metrics">
+              <span class="metric">-50% время согласований</span>
+              <span class="metric">+18% маржа</span>
+            </div>
+            <p>Инженеры и менеджмент работают в едином пространстве: прозрачные статусы, контроль рисков, документирование.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <h2>Запросите демо и соберите свою систему мышления</h2>
+        <p>Покажем, как Prodex подключается к вашим процессам, подстраивает AI-фасилитатора и выводит команду на новую скорость.</p>
+        <a class="button-primary" href="mailto:hello@prodex.io">hello@prodex.io</a>
+      </section>
+
+      <footer>
+        <span>© 2024 Prodex OS</span>
+        <span>Создано в России · безопасно для корпоративных данных</span>
+      </footer>
+    </div>
+  </body>
+</html>
