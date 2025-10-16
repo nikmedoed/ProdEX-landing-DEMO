@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prodex — демо-концепции</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+      body {
+        background: radial-gradient(
+              circle at top,
+              rgba(80, 80, 255, 0.08),
+              transparent 55%
+            )
+            fixed,
+          #f5f7fb;
+      }
+      .index {
+        padding: 48px 0 72px;
+      }
+      .index__header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 40px;
+      }
+      .index__title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 48px;
+        margin-bottom: 24px;
+        color: #111827;
+      }
+      .index__subtitle {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #4b5563;
+      }
+      .variant-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .variant-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        text-decoration: none;
+        color: inherit;
+        min-height: 0;
+      }
+      .variant-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+      }
+      .variant-card__heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .variant-card__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .variant-card__label--codex {
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+      }
+      .variant-card__label--gpt {
+        background: rgba(16, 185, 129, 0.12);
+        color: #047857;
+      }
+      .variant-card__title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .variant-card__description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4b5563;
+        margin: 0;
+      }
+      .variant-card__arrow {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        font-size: 20px;
+        transition: transform 0.25s ease;
+      }
+      .variant-card:hover .variant-card__arrow {
+        transform: translateX(4px);
+      }
+      .index > .container {
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      @media (max-width: 1200px) {
+        .variant-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 800px) {
+        .variant-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .index {
+          padding: 72px 0 96px;
+        }
+        .index__title {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="index" id="top">
+      <div class="container">
+        <header class="index__header">
+          <p class="index__subtitle">
+            Ниже собраны концепции лендингов Prodex. Выберите вариант, чтобы
+            посмотреть конкретную реализацию.
+          </p>
+        </header>
+
+        <section class="variant-grid">
+          <a class="variant-card" href="GPT1.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Инновационный ракурс команды</h2>
+              <span class="variant-card__label variant-card__label--gpt"
+                >GPT v1</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Фокусируется на роли ИИ и цифровых следов в управлении знаниями,
+              подчёркивает гибкость платформы для мультифункциональных команд.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="GPT2.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Экосистема продукта и сервисов
+              </h2>
+              <span class="variant-card__label variant-card__label--gpt"
+                >GPT v2</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Показывает Prodex как экосистему сервисов: от фреймов мышления до
+              аналитики и сопровождения внедрения в компаниях.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="GPT3.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Образовательный акцент для HR</h2>
+              <span class="variant-card__label variant-card__label--gpt"
+                >GPT v3</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Адаптирован под edtech-аудитории и корпоративное обучение,
+              иллюстрирует, как Prodex помогает систематизировать развитие
+              сотрудников.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex1.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Стратегический фокус для лидеров
+              </h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v1</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Подчеркивает прозрачность интеллектуального труда, опирается на
+              промышленные кейсы и показывает, как управленцы получают
+              управляемую картину изменений.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex2.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Операционная эффективность по шагам
+              </h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v2</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Делает акцент на процессах и автоматизации: описывает путь
+              клиента, этапы внедрения и экономический эффект для заказчика.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex3.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Цифровой операционный контур</h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v3</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Показывает Prodex как живую систему управления мышлением:
+              синхронизирует команды, фиксирует вклад и ускоряет внедрение
+              улучшений без роста штата.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex4.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Ночной режим цифрового интеллекта
+              </h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v4</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Визуализирует Prodex как тёмный дашборд для top-management:
+              подчёркивает прозрачность данных и работу ИИ-фасилитатора в
+              корпоративных масштабах.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex5.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Операционная система для продуктовых команд
+              </h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v5</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Объединяет стратегию, процессы и аналитику: цифровые регламенты,
+              управление бэклогами и автоотчёты держат под контролем релизы и
+              загрузку команд.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Codex6.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">
+                Цифровой интеллект для управляемых трансформаций
+              </h2>
+              <span class="variant-card__label variant-card__label--codex"
+                >Codex v6</span
+              >
+            </div>
+            <p class="variant-card__description">
+              Демонстрирует Prodex OS как поток совместного мышления с
+              AI-фасилитатором, корпоративной безопасностью и аналитикой ROI для
+              топ-команд.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

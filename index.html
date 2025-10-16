@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prodex — демо-концепции</title>
+    <title>ProdEx — демо-концепции. Серия II</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="Archive/assets/styles.css" />
     <style>
       body {
         background: radial-gradient(
@@ -26,7 +26,7 @@
       }
       .index__header {
         text-align: center;
-        max-width: 720px;
+        max-width: 760px;
         margin: 0 auto 40px;
       }
       .index__title {
@@ -80,13 +80,13 @@
         font-weight: 600;
         white-space: nowrap;
       }
-      .variant-card__label--codex {
+      .variant-card__label--series {
+        background: rgba(99, 102, 241, 0.12);
+        color: #3730a3;
+      }
+      .variant-card__label--archive {
         background: rgba(59, 130, 246, 0.12);
         color: #1d4ed8;
-      }
-      .variant-card__label--gpt {
-        background: rgba(16, 185, 129, 0.12);
-        color: #047857;
       }
       .variant-card__title {
         font-size: 20px;
@@ -139,154 +139,148 @@
   <body>
     <main class="index" id="top">
       <div class="container">
-        <header class="index__header">
-          <p class="index__subtitle">
-            Ниже собраны концепции лендингов Prodex. Выберите вариант, чтобы
-            посмотреть конкретную реализацию.
-          </p>
-        </header>
 
         <section class="variant-grid">
-          <a class="variant-card" href="GPT1.html">
+          <a class="variant-card" href="v1/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Инновационный ракурс команды</h2>
-              <span class="variant-card__label variant-card__label--gpt"
-                >GPT v1</span
-              >
+              <h2 class="variant-card__title">Классический универсальный лендинг</h2>
+              <span class="variant-card__label variant-card__label--series">v1</span>
             </div>
             <p class="variant-card__description">
-              Фокусируется на роли ИИ и цифровых следов в управлении знаниями,
-              подчёркивает гибкость платформы для мультифункциональных команд.
+              Уравновешенный сценарий с привычной структурой: проблема → решение → сегменты → кейсы.
+              Хорошая отправная точка для широкой аудитории.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="GPT2.html">
+          <a class="variant-card" href="v2/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Экосистема продукта и сервисов
-              </h2>
-              <span class="variant-card__label variant-card__label--gpt"
-                >GPT v2</span
-              >
+              <h2 class="variant-card__title">Фокус на вовлечении топ-менеджмента</h2>
+              <span class="variant-card__label variant-card__label--series">v2</span>
             </div>
             <p class="variant-card__description">
-              Показывает Prodex как экосистему сервисов: от фреймов мышления до
-              аналитики и сопровождения внедрения в компаниях.
+              Расширенные блоки про управление изменениями и ценность для дирекции, усилена бизнес-
+              терминология и блоки доверия.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="GPT3.html">
+          <a class="variant-card" href="v3/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Образовательный акцент для HR</h2>
-              <span class="variant-card__label variant-card__label--gpt"
-                >GPT v3</span
-              >
+              <h2 class="variant-card__title">Плотный storytelling с акцентом на ROI</h2>
+              <span class="variant-card__label variant-card__label--series">v3</span>
             </div>
             <p class="variant-card__description">
-              Адаптирован под edtech-аудитории и корпоративное обучение,
-              иллюстрирует, как Prodex помогает систематизировать развитие
-              сотрудников.
+              Лонгрид с чередованием фактов и историй успеха, подчёркивает экономический эффект и
+              путь клиента от боли до результата.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex1.html">
+          <a class="variant-card" href="v4/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Стратегический фокус для лидеров
-              </h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v1</span
-              >
+              <h2 class="variant-card__title">Платформа как управленческий ассистент</h2>
+              <span class="variant-card__label variant-card__label--series">v4</span>
             </div>
             <p class="variant-card__description">
-              Подчеркивает прозрачность интеллектуального труда, опирается на
-              промышленные кейсы и показывает, как управленцы получают
-              управляемую картину изменений.
+              Более технологичный язык и визуальные подсекции для продуктов, ориентирован на интеграцию
+              в процессы и команды трансформации.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex2.html">
+          <a class="variant-card" href="v5/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Операционная эффективность по шагам
-              </h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v2</span
-              >
+              <h2 class="variant-card__title">Интенсивная посадочная с социальным доказательством</h2>
+              <span class="variant-card__label variant-card__label--series">v5</span>
             </div>
             <p class="variant-card__description">
-              Делает акцент на процессах и автоматизации: описывает путь
-              клиента, этапы внедрения и экономический эффект для заказчика.
+              Усиленная витрина кейсов, блоки отзывов и цифр. Подходит для ситуаций, когда главное —
+              показать доказательства и метрики.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex3.html">
+          <a class="variant-card" href="v6/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">Цифровой операционный контур</h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v3</span
-              >
+              <h2 class="variant-card__title">Продукт для операционных команд</h2>
+              <span class="variant-card__label variant-card__label--series">v6</span>
             </div>
             <p class="variant-card__description">
-              Показывает Prodex как живую систему управления мышлением:
-              синхронизирует команды, фиксирует вклад и ускоряет внедрение
-              улучшений без роста штата.
+              Наглядно раскрывает цикл работы: от постановки задачи до аналитики, акцентирует контроль
+              сроков и прозрачность взаимодействий.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex4.html">
+          <a class="variant-card" href="v7/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Ночной режим цифрового интеллекта
-              </h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v4</span
-              >
+              <h2 class="variant-card__title">Экспертная платформа для консалтинга</h2>
+              <span class="variant-card__label variant-card__label--series">v7</span>
             </div>
             <p class="variant-card__description">
-              Визуализирует Prodex как тёмный дашборд для top-management:
-              подчёркивает прозрачность данных и работу ИИ-фасилитатора в
-              корпоративных масштабах.
+              Показывает, как ProdEx помогает методологам и трекерам масштабировать проекты, содержит
+              отдельные CTA под партнёрства.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex5.html">
+          <a class="variant-card" href="v8/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Операционная система для продуктовых команд
-              </h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v5</span
-              >
+              <h2 class="variant-card__title">Идеи → действия → измеримый результат</h2>
+              <span class="variant-card__label variant-card__label--series">v8</span>
             </div>
             <p class="variant-card__description">
-              Объединяет стратегию, процессы и аналитику: цифровые регламенты,
-              управление бэклогами и автоотчёты держат под контролем релизы и
-              загрузку команд.
+              Динамичная структура с акцентом на путь пользователя, визуальные шаги и элементы
+              продуктового подхода.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>
 
-          <a class="variant-card" href="Codex6.html">
+          <a class="variant-card" href="v9/index.html">
             <div class="variant-card__heading">
-              <h2 class="variant-card__title">
-                Цифровой интеллект для управляемых трансформаций
-              </h2>
-              <span class="variant-card__label variant-card__label--codex"
-                >Codex v6</span
-              >
+              <h2 class="variant-card__title">Лендинг для CEO и инвесторов</h2>
+              <span class="variant-card__label variant-card__label--series">v9</span>
             </div>
             <p class="variant-card__description">
-              Демонстрирует Prodex OS как поток совместного мышления с
-              AI-фасилитатором, корпоративной безопасностью и аналитикой ROI для
-              топ-команд.
+              Компактные, но ёмкие блоки с визуализацией выгод для собственников, фокус на прозрачности
+              активов и управлении портфелем.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v10/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Платформа роста эффективности</h2>
+              <span class="variant-card__label variant-card__label--series">v10</span>
+            </div>
+            <p class="variant-card__description">
+              Развивает тему масштабирования лучших практик, подчёркивает скорость внедрения и готовые
+              сценарии для разных функций.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v11/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Интеллектуальная операционная система</h2>
+              <span class="variant-card__label variant-card__label--series">v11</span>
+            </div>
+            <p class="variant-card__description">
+              Современная визуальная подача с модульной навигацией по страницам, подчёркивает ProdEx как
+              единую среду стратегических инициатив.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="Archive/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Архив первой серии концептов</h2>
+              <span class="variant-card__label variant-card__label--archive">Archive</span>
+            </div>
+            <p class="variant-card__description">
+              12 ранних вариантов лендинга с альтернативными визуальными подходами и позиционированием.
+              Используйте, чтобы сравнить эволюцию продукта.
             </p>
             <span class="variant-card__arrow">→</span>
           </a>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты ProdEx — запросить демо и обсудить внедрение</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <nav>
+          <div class="nav-inner">
+            <a class="logo" href="index.html">ProdEx</a>
+            <div class="nav-links">
+              <a href="index.html">Главная</a>
+              <a href="ceo.html">Собственникам</a>
+              <a href="operations.html">Операционный блок</a>
+              <a href="hr.html">HR</a>
+              <a href="consultants.html">Консультантам</a>
+              <a href="universities.html">Университетам</a>
+              <a href="cases.html">Кейсы</a>
+              <a href="blog.html">Блог</a>
+              <a class="active" href="contacts.html">Контакты</a>
+            </div>
+          </div>
+        </nav>
+        <section class="hero" id="demo">
+          <div class="hero-content hero-left">
+            <span class="hero-eyebrow">Связаться с ProdEx</span>
+            <h1>Начните управлять интеллектуальной работой уже сегодня</h1>
+            <p>Заполните форму обратной связи или напишите нам напрямую — подготовим персональное демо и обсудим сценарий внедрения.</p>
+            <div class="hero-actions">
+              <a class="button-primary" href="mailto:info@prodexai.ru?subject=Demo%20ProdEx">Отправить запрос</a>
+              <a class="button-ghost" href="assets/prodex-presentation.pdf">Скачать презентацию</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="cta-card">
+              <h2>Запланируйте встречу</h2>
+              <p>Расскажите о ваших задачах, и мы предложим сценарий с расчётом эффекта.</p>
+              <a class="button-primary" href="https://t.me/ProdexTeam">Написать в Telegram</a>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-header">
+            <span class="section-label">Контакты</span>
+            <h2>Как с нами связаться</h2>
+            <p>Выберите удобный канал: наша команда ответит в течение рабочего дня.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <strong>Email</strong>
+              <span>info@prodexai.ru</span>
+              <p>Отправьте задачу или бриф — подготовим решение и демо-сценарий.</p>
+            </div>
+            <div class="contact-card">
+              <strong>Telegram</strong>
+              <span>@ProdexTeam</span>
+              <p>Быстрая коммуникация с командой продукта.</p>
+            </div>
+            <div class="contact-card">
+              <strong>Сайт</strong>
+              <span>www.prodexai.ru</span>
+              <p>Актуальные новости и материалы о платформе.</p>
+            </div>
+            <div class="contact-card">
+              <strong>Офис</strong>
+              <span>Москва, ул. Покровка, 47</span>
+              <p>Встречи по предварительной договорённости.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <span class="section-label">Форма</span>
+            <h2>Оставьте заявку на демо</h2>
+            <p>Укажите, какие задачи хотите решить, и мы подберём релевантные сценарии и команду.</p>
+          </div>
+          <div class="info-card">
+            <form class="two-columns" action="https://formspree.io/f/mayvlqja" method="POST">
+              <label>
+                <span>Имя и фамилия</span>
+                <input type="text" name="name" required style="padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(9, 10, 24, 0.82); color: #fff;" />
+              </label>
+              <label>
+                <span>Компания</span>
+                <input type="text" name="company" required style="padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(9, 10, 24, 0.82); color: #fff;" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required style="padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(9, 10, 24, 0.82); color: #fff;" />
+              </label>
+              <label>
+                <span>Телефон</span>
+                <input type="tel" name="phone" style="padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(9, 10, 24, 0.82); color: #fff;" />
+              </label>
+              <label style="grid-column: 1 / -1; display: grid; gap: 12px;">
+                <span>Какие задачи хотите решить?</span>
+                <textarea name="message" rows="5" style="padding: 16px 18px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(9, 10, 24, 0.82); color: #fff; resize: vertical;"></textarea>
+              </label>
+              <div style="grid-column: 1 / -1; display: flex; gap: 16px; align-items: center;">
+                <button class="button-primary" type="submit">Отправить</button>
+                <span style="color: rgba(243, 245, 255, 0.72); font-size: 0.85rem;">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="cta-card">
+            <h2>Продолжим разговор</h2>
+            <p>Мы готовы показать ProdEx в действии и обсудить внедрение под вашу стратегию.</p>
+            <div class="hero-actions">
+              <a class="button-primary" href="mailto:info@prodexai.ru?subject=Demo%20ProdEx">Назначить демо</a>
+              <a class="button-ghost" href="cases.html">Смотреть кейсы</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <strong>ProdEx</strong>
+        <div class="footer-links">
+          <a href="ceo.html">Собственникам</a>
+          <a href="operations.html">Операционным директорам</a>
+          <a href="hr.html">HR-директорам</a>
+          <a href="consultants.html">Консультантам и трекерам</a>
+          <a href="universities.html">Университетам</a>
+          <a href="cases.html">Кейсы</a>
+          <a href="blog.html">Блог</a>
+          <a class="active" href="contacts.html">Контакты</a>
+        </div>
+        <span>© 2024 ProdEx. Поддержка внедрения и сопровождения 7/7.</span>
+      </footer>
+    </div>
+  </body>
+</html>
