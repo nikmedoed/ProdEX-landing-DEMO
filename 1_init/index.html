@@ -21,6 +21,22 @@
             fixed,
           #f5f7fb;
       }
+      .back-nav {
+        margin: 0 auto 24px;
+        max-width: 1200px;
+        padding: 0 20px;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #1d4ed8;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
       .index {
         padding: 48px 0 72px;
       }
@@ -138,6 +154,9 @@
   </head>
   <body>
     <main class="index" id="top">
+      <nav class="back-nav">
+        <a class="back-link" href="../index.html">← На главную</a>
+      </nav>
       <div class="container">
         <header class="index__header">
           <p class="index__subtitle">

@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProdEx — демо-концепции. Серия II</title>
+    <title>ProdEx — демо-архив</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Archive/assets/styles.css" />
+    <link rel="stylesheet" href="1_init/assets/styles.css" />
     <style>
       body {
         background: radial-gradient(
@@ -22,12 +22,12 @@
           #f5f7fb;
       }
       .index {
-        padding: 48px 0 72px;
+        padding: 72px 0 96px;
       }
       .index__header {
         text-align: center;
         max-width: 760px;
-        margin: 0 auto 40px;
+        margin: 0 auto 48px;
       }
       .index__title {
         font-family: "Poppins", sans-serif;
@@ -41,12 +41,12 @@
         line-height: 1.7;
         color: #4b5563;
       }
-      .variant-grid {
+      .section-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 20px;
       }
-      .variant-card {
+      .section-card {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -60,17 +60,11 @@
         color: inherit;
         min-height: 0;
       }
-      .variant-card:hover {
+      .section-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
       }
-      .variant-card__heading {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 16px;
-      }
-      .variant-card__label {
+      .section-card__label {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -79,210 +73,66 @@
         font-size: 14px;
         font-weight: 600;
         white-space: nowrap;
-      }
-      .variant-card__label--series {
         background: rgba(99, 102, 241, 0.12);
         color: #3730a3;
       }
-      .variant-card__label--archive {
-        background: rgba(59, 130, 246, 0.12);
-        color: #1d4ed8;
-      }
-      .variant-card__title {
-        font-size: 20px;
+      .section-card__title {
+        font-size: 22px;
         font-weight: 600;
         margin: 0;
       }
-      .variant-card__description {
+      .section-card__description {
         font-size: 16px;
         line-height: 1.6;
         color: #4b5563;
         margin: 0;
       }
-      .variant-card__arrow {
+      .section-card__arrow {
         position: absolute;
         right: 24px;
         bottom: 24px;
         font-size: 20px;
         transition: transform 0.25s ease;
       }
-      .variant-card:hover .variant-card__arrow {
+      .section-card:hover .section-card__arrow {
         transform: translateX(4px);
-      }
-      .index > .container {
-        max-width: none;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      @media (max-width: 1200px) {
-        .variant-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 800px) {
-        .variant-grid {
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-      }
-      @media (max-width: 640px) {
-        .index {
-          padding: 72px 0 96px;
-        }
-        .index__title {
-          font-size: 36px;
-        }
       }
     </style>
   </head>
   <body>
     <main class="index" id="top">
       <div class="container">
-
-        <section class="variant-grid">
-          <a class="variant-card" href="v1/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Классический универсальный лендинг</h2>
-              <span class="variant-card__label variant-card__label--series">v1</span>
-            </div>
-            <p class="variant-card__description">
-              Уравновешенный сценарий с привычной структурой: проблема → решение → сегменты → кейсы.
-              Хорошая отправная точка для широкой аудитории.
+        <header class="index__header">
+          <h1 class="index__title">Демо-концепции ProdEx</h1>
+          <p class="index__subtitle">
+            Три раздела с материалами по развитию посадочных страниц: ранние прототипы, серия полноформатных
+            версий и текущая рабочая линия.
+          </p>
+        </header>
+        <section class="section-grid">
+          <a class="section-card" href="1_init/index.html">
+            <span class="section-card__label">1 серия</span>
+            <h2 class="section-card__title">Первичные прототипы</h2>
+            <p class="section-card__description">
+              Архив ранних идей и экспериментов с тоном коммуникации, включая варианты Codex и GPT.
             </p>
-            <span class="variant-card__arrow">→</span>
+            <span class="section-card__arrow">→</span>
           </a>
-
-          <a class="variant-card" href="v2/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Фокус на вовлечении топ-менеджмента</h2>
-              <span class="variant-card__label variant-card__label--series">v2</span>
-            </div>
-            <p class="variant-card__description">
-              Расширенные блоки про управление изменениями и ценность для дирекции, усилена бизнес-
-              терминология и блоки доверия.
+          <a class="section-card" href="2_full/index.html">
+            <span class="section-card__label">2 серия</span>
+            <h2 class="section-card__title">Полноформатные версии</h2>
+            <p class="section-card__description">
+              Каталог из одиннадцати лендингов, собранных в рамках второй серии концептов.
             </p>
-            <span class="variant-card__arrow">→</span>
+            <span class="section-card__arrow">→</span>
           </a>
-
-          <a class="variant-card" href="v3/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Плотный storytelling с акцентом на ROI</h2>
-              <span class="variant-card__label variant-card__label--series">v3</span>
-            </div>
-            <p class="variant-card__description">
-              Лонгрид с чередованием фактов и историй успеха, подчёркивает экономический эффект и
-              путь клиента от боли до результата.
+          <a class="section-card" href="3_landing/index.html">
+            <span class="section-card__label">3 серия</span>
+            <h2 class="section-card__title">Текущий лендинг</h2>
+            <p class="section-card__description">
+              Площадка под финальные версии. Страница пока собирает вводную информацию.
             </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v4/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Платформа как управленческий ассистент</h2>
-              <span class="variant-card__label variant-card__label--series">v4</span>
-            </div>
-            <p class="variant-card__description">
-              Более технологичный язык и визуальные подсекции для продуктов, ориентирован на интеграцию
-              в процессы и команды трансформации.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v5/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Интенсивная посадочная с социальным доказательством</h2>
-              <span class="variant-card__label variant-card__label--series">v5</span>
-            </div>
-            <p class="variant-card__description">
-              Усиленная витрина кейсов, блоки отзывов и цифр. Подходит для ситуаций, когда главное —
-              показать доказательства и метрики.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v6/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Продукт для операционных команд</h2>
-              <span class="variant-card__label variant-card__label--series">v6</span>
-            </div>
-            <p class="variant-card__description">
-              Наглядно раскрывает цикл работы: от постановки задачи до аналитики, акцентирует контроль
-              сроков и прозрачность взаимодействий.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v7/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Экспертная платформа для консалтинга</h2>
-              <span class="variant-card__label variant-card__label--series">v7</span>
-            </div>
-            <p class="variant-card__description">
-              Показывает, как ProdEx помогает методологам и трекерам масштабировать проекты, содержит
-              отдельные CTA под партнёрства.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v8/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Идеи → действия → измеримый результат</h2>
-              <span class="variant-card__label variant-card__label--series">v8</span>
-            </div>
-            <p class="variant-card__description">
-              Динамичная структура с акцентом на путь пользователя, визуальные шаги и элементы
-              продуктового подхода.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v9/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Лендинг для CEO и инвесторов</h2>
-              <span class="variant-card__label variant-card__label--series">v9</span>
-            </div>
-            <p class="variant-card__description">
-              Компактные, но ёмкие блоки с визуализацией выгод для собственников, фокус на прозрачности
-              активов и управлении портфелем.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v10/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Платформа роста эффективности</h2>
-              <span class="variant-card__label variant-card__label--series">v10</span>
-            </div>
-            <p class="variant-card__description">
-              Развивает тему масштабирования лучших практик, подчёркивает скорость внедрения и готовые
-              сценарии для разных функций.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="v11/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Интеллектуальная операционная система</h2>
-              <span class="variant-card__label variant-card__label--series">v11</span>
-            </div>
-            <p class="variant-card__description">
-              Современная визуальная подача с модульной навигацией по страницам, подчёркивает ProdEx как
-              единую среду стратегических инициатив.
-            </p>
-            <span class="variant-card__arrow">→</span>
-          </a>
-
-          <a class="variant-card" href="Archive/index.html">
-            <div class="variant-card__heading">
-              <h2 class="variant-card__title">Архив первой серии концептов</h2>
-              <span class="variant-card__label variant-card__label--archive">Archive</span>
-            </div>
-            <p class="variant-card__description">
-              12 ранних вариантов лендинга с альтернативными визуальными подходами и позиционированием.
-              Используйте, чтобы сравнить эволюцию продукта.
-            </p>
-            <span class="variant-card__arrow">→</span>
+            <span class="section-card__arrow">→</span>
           </a>
         </section>
       </div>

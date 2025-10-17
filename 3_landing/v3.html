@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProdEx — интеллектуальная работа под контролем</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg-dark: #070815;
+        --bg-light: #0f1022;
+        --bg-card: rgba(24, 26, 47, 0.78);
+        --bg-glass: rgba(16, 17, 35, 0.82);
+        --bg-chip: rgba(108, 92, 255, 0.14);
+        --accent: #6c5cff;
+        --accent-alt: #41e0ff;
+        --accent-soft: rgba(108, 92, 255, 0.18);
+        --accent-gradient: linear-gradient(135deg, #6c5cff 0%, #41e0ff 100%);
+        --text-primary: #f5f6ff;
+        --text-secondary: rgba(243, 245, 255, 0.82);
+        --text-muted: rgba(189, 194, 237, 0.68);
+        --border: rgba(151, 155, 205, 0.24);
+        --shadow-card: 0 22px 60px rgba(10, 12, 30, 0.48);
+        --container: min(1180px, calc(92vw));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(circle at top right, rgba(108, 92, 255, 0.12), transparent 55%),
+          radial-gradient(circle at 15% 20%, rgba(65, 224, 255, 0.1), transparent 55%),
+          linear-gradient(180deg, rgba(7, 8, 21, 0.95) 0%, rgba(6, 7, 16, 1) 68%, #05060f 100%);
+        color: var(--text-primary);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        width: var(--container);
+        margin: 0 auto;
+      }
+
+      /* Navigation */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(20px);
+        background: rgba(7, 8, 21, 0.88);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .site-nav .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        gap: 32px;
+      }
+
+      .logo {
+        font-family: "Manrope", sans-serif;
+        font-weight: 700;
+        font-size: 1.28rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(18px, 3vw, 32px);
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      .nav-links a,
+      .nav-dropdown > button {
+        position: relative;
+        background: none;
+        border: none;
+        font: inherit;
+        color: inherit;
+        padding: 0;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-links a::after,
+      .nav-dropdown > button::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: width 0.25s ease;
+      }
+
+      .nav-links a:hover::after,
+      .nav-dropdown:hover > button::after {
+        width: 100%;
+      }
+
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 120%;
+        left: 0;
+        min-width: 240px;
+        background: rgba(13, 15, 32, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        box-shadow: var(--shadow-card);
+        padding: 14px 0;
+        display: none;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .dropdown-menu a:hover {
+        background: rgba(108, 92, 255, 0.14);
+        color: #ffffff;
+      }
+
+      .nav-dropdown:hover .dropdown-menu,
+      .nav-dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+
+      /* Hero */
+      .hero {
+        padding: clamp(72px, 14vw, 120px) 0 clamp(56px, 10vw, 96px);
+        display: grid;
+        gap: clamp(40px, 5vw, 90px);
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -160px -180px auto auto;
+        width: clamp(240px, 36vw, 420px);
+        height: clamp(240px, 36vw, 420px);
+        background: radial-gradient(circle, rgba(108, 92, 255, 0.6), transparent 70%);
+        filter: blur(38px);
+        z-index: -1;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 18px;
+        border-radius: 999px;
+        background: var(--bg-chip);
+        border: 1px solid rgba(108, 92, 255, 0.25);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+      }
+
+      .hero h1 {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(2.6rem, 4.6vw, 4rem);
+        line-height: 1.08;
+        margin: 22px 0 16px;
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        max-width: 580px;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 26px;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: 0.98rem;
+        border: 1px solid transparent;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+      }
+
+      .btn-primary {
+        background: var(--accent-gradient);
+        color: #05060f;
+        box-shadow: 0 18px 50px rgba(80, 70, 255, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 60px rgba(76, 66, 255, 0.48);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: var(--text-primary);
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.36);
+      }
+
+      .hero-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 26px;
+        padding: clamp(24px, 3vw, 36px);
+        box-shadow: var(--shadow-card);
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero-card h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .stat-card {
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(108, 92, 255, 0.12);
+        border: 1px solid rgba(108, 92, 255, 0.24);
+      }
+
+      .stat-card span {
+        display: block;
+        font-family: "Manrope", sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+      }
+
+      /* Sections */
+      section {
+        padding: clamp(72px, 12vw, 120px) 0;
+        position: relative;
+      }
+
+      .section-header {
+        max-width: 760px;
+        margin-bottom: clamp(32px, 6vw, 56px);
+      }
+
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      h2 {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(2rem, 3.4vw, 3.1rem);
+        line-height: 1.15;
+        margin: 18px 0 18px;
+      }
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      ul {
+        margin: 0 0 18px;
+        padding-left: 22px;
+        color: var(--text-secondary);
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .section-grid {
+        display: grid;
+        gap: clamp(20px, 4vw, 32px);
+      }
+
+      .three-columns {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background: rgba(20, 21, 40, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: clamp(20px, 3vw, 28px);
+        box-shadow: 0 18px 48px rgba(8, 10, 28, 0.42);
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.12rem;
+      }
+
+      .highlight-text {
+        margin-top: 32px;
+        padding: 20px 24px;
+        border-radius: 18px;
+        background: rgba(108, 92, 255, 0.14);
+        border: 1px solid rgba(108, 92, 255, 0.32);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .feature-track {
+        display: grid;
+        gap: 18px;
+      }
+
+      .track-item {
+        display: grid;
+        gap: 6px;
+        padding: 20px 22px;
+        border-radius: 20px;
+        background: rgba(16, 18, 36, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .track-item strong {
+        font-weight: 600;
+        font-size: 1.04rem;
+      }
+
+      .value-grid {
+        display: grid;
+        gap: clamp(20px, 4vw, 32px);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-top: clamp(28px, 5vw, 40px);
+      }
+
+      blockquote {
+        margin: clamp(28px, 6vw, 48px) 0 0;
+        padding: clamp(20px, 4vw, 32px);
+        border-left: 4px solid rgba(108, 92, 255, 0.5);
+        background: rgba(15, 17, 35, 0.85);
+        border-radius: 18px;
+        font-style: italic;
+        color: var(--text-secondary);
+      }
+
+      .case-cards {
+        display: grid;
+        gap: clamp(24px, 5vw, 36px);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .case-card ul {
+        margin: 16px 0 0;
+        padding-left: 20px;
+        color: var(--text-secondary);
+      }
+
+      .case-card li {
+        margin-bottom: 10px;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: clamp(32px, 5vw, 40px);
+      }
+
+      .audience-grid {
+        display: grid;
+        gap: clamp(20px, 4vw, 32px);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .audience-card {
+        position: relative;
+        padding: clamp(22px, 4vw, 30px);
+        border-radius: 22px;
+        background: rgba(15, 18, 38, 0.86);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.25s ease, border 0.25s ease;
+      }
+
+      .audience-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(108, 92, 255, 0.45);
+      }
+
+      .audience-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.06rem;
+      }
+
+      .audience-card p {
+        color: var(--text-secondary);
+        margin-bottom: 18px;
+      }
+
+      .audience-card span {
+        color: var(--accent-alt);
+        font-weight: 600;
+      }
+
+      .team-grid {
+        display: grid;
+        gap: clamp(24px, 5vw, 36px);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .team-card {
+        display: grid;
+        gap: 18px;
+        padding: clamp(22px, 4vw, 28px);
+        border-radius: 24px;
+        background: rgba(17, 19, 39, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .team-photo {
+        width: 100%;
+        padding-top: 100%;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(108, 92, 255, 0.32), rgba(65, 224, 255, 0.26));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-photo::after {
+        content: "Фото";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.38);
+        letter-spacing: 0.1em;
+      }
+
+      .team-card strong {
+        font-size: 1.04rem;
+      }
+
+      .final-cta {
+        text-align: center;
+        background: linear-gradient(135deg, rgba(108, 92, 255, 0.24), rgba(65, 224, 255, 0.18));
+        border-radius: 28px;
+        padding: clamp(36px, 6vw, 64px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 22px 60px rgba(10, 12, 30, 0.45);
+      }
+
+      .final-cta p {
+        max-width: 620px;
+        margin: 0 auto 28px;
+        color: var(--text-secondary);
+      }
+
+      .contact-links {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      /* Footer */
+      .site-footer {
+        margin-top: clamp(80px, 12vw, 120px);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(7, 8, 21, 0.92);
+      }
+
+      .footer-inner {
+        width: var(--container);
+        margin: 0 auto;
+        padding: 36px 0 28px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .footer-copy {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .site-nav .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: space-between;
+          gap: 14px;
+        }
+
+        .dropdown-menu {
+          position: static;
+          margin-top: 12px;
+          width: 100%;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .btn-group {
+          justify-content: flex-start;
+        }
+
+        .final-cta {
+          text-align: left;
+        }
+
+        .contact-links {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <nav class="site-nav">
+        <div class="container nav-inner">
+          <a class="logo" href="index.html">PRODEX</a>
+          <div class="nav-links">
+            <a href="#top">Главная</a>
+            <div class="nav-dropdown">
+              <button type="button">Для кого ▾</button>
+              <div class="dropdown-menu">
+                <a href="../2_full/v11/audiences.html#owners">Собственникам и СЕО</a>
+                <a href="../2_full/v11/audiences.html#development">Директорам по развитию</a>
+                <a href="../2_full/v11/audiences.html#hr">HR-директорам</a>
+                <a href="../2_full/v11/audiences.html#consultants">Консультантам и трекерам</a>
+                <a href="../2_full/v11/audiences.html#education">Университетам и акселераторам</a>
+              </div>
+            </div>
+            <a href="../2_full/v11/cases.html">Кейсы</a>
+            <a href="../2_full/v11/blog.html">Блог</a>
+            <a href="#contacts">Контакты</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="container hero">
+        <div>
+          <span class="hero-eyebrow">платформа интеллектуальной работы</span>
+          <h1>ProdEx — система, которая делает интеллектуальную работу видимой</h1>
+          <p class="lead">
+            Платформа для управления интеллектуальным трудом и командным мышлением. От идей до измеримых
+            результатов — быстрее, прозрачнее, управляемо.
+          </p>
+          <div class="btn-group">
+            <a class="btn-primary" href="mailto:info@prodexai.ru?subject=Запрос%20демо">🟢 Запросить демо</a>
+            <a class="btn-secondary" href="mailto:info@prodexai.ru?subject=Запрос%20презентации">⚪ Скачать презентацию</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Командное мышление становится управляемым</h3>
+          <p>
+            ProdEx переводит идеи и обсуждения в цифру: вы видите прогресс в реальном времени, фиксируете вклад
+            каждого участника и ускоряете путь от гипотезы до эффекта.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span>76%</span>
+              <p>проектов по эффективности не достигают ожиданий без прозрачности интеллектуальной работы</p>
+            </div>
+            <div class="stat-card">
+              <span>×2</span>
+              <p>ускорение внедрения улучшений за счёт аналитики, встроенной в рабочий процесс</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">вызов</span>
+            <h2>Почему компании теряют эффективность</h2>
+            <p>
+              76% проектов <a href="../2_full/v11/blog.html" target="_blank" rel="noopener">по операционной эффективности</a>
+              не достигают ожидаемого результата (Bain &amp; Company).
+            </p>
+          </div>
+          <div class="section-grid three-columns">
+            <div class="card">
+              <h3>Команды перегружены операционными задачами</h3>
+              <p>Время на развитие и поиск новых решений остаётся «между делом», инициатива гаснет.</p>
+            </div>
+            <div class="card">
+              <h3>Интеллектуальная работа остаётся невидимой</h3>
+              <p>Нет данных о ходе мыслительных процессов, трудно оценить вклад людей и точку провала.</p>
+            </div>
+            <div class="card">
+              <h3>Зависимость от экспертов тормозит масштаб</h3>
+              <p>Методологи и консультанты не успевают сопровождать все проекты, лучшие практики не тиражируются.</p>
+            </div>
+          </div>
+          <div class="highlight-text">Идеи рождаются, но не превращаются в конкретные улучшения и экономический эффект.</div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">решение</span>
+            <h2>ProdEx переводит мышление команды в цифровую среду</h2>
+            <p>
+              Платформа задаёт алгоритмы размышлений и фиксирует цифровой след интеллектуальной работы. Каждое
+              действие, мысль и решение становятся прозрачными и воспроизводимыми.
+            </p>
+          </div>
+          <div class="highlight-text">Вы начинаете видеть то, что раньше было невидимо.</div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">механика</span>
+            <h2>Как это работает</h2>
+            <p>
+              ProdEx превращает процесс обсуждений в управляемый поток создания ценности: от первой гипотезы до
+              подтверждённого эффекта.
+            </p>
+          </div>
+          <div class="feature-track">
+            <div class="track-item">
+              <strong>1. Алгоритмы мышления</strong>
+              <span>Интерактивные шаблоны направляют команду по шагам решения задач.</span>
+            </div>
+            <div class="track-item">
+              <strong>2. Цифровой след</strong>
+              <span>Система фиксирует вклад каждого участника и уровень вовлечённости.</span>
+            </div>
+            <div class="track-item">
+              <strong>3. ИИ-ассистент</strong>
+              <span>Задаёт вопросы, помогает держать структуру мышления и поддерживает команду.</span>
+            </div>
+            <div class="track-item">
+              <strong>4. Автоматическая аналитика и отчётность</strong>
+              <span>Руководитель видит реальное продвижение проектов в реальном времени.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">ценность</span>
+            <h2>Почему ProdEx выбирают компании, которым необходимо повысить финансовую устойчивость бизнеса</h2>
+          </div>
+          <ul>
+            <li><strong>Ускоряет</strong> рост эффективности за счет большей вовлеченности сотрудников</li>
+            <li>
+              <strong>Упрощает</strong> тиражирование лучших практик без увеличения штата консультантов и методологов
+            </li>
+            <li><strong>Повышает</strong> прозрачность вклада каждого участника для честной системы мотивации</li>
+          </ul>
+          <blockquote>
+            «Мы превратили интеллектуальную работу из невидимой в управляемую. Теперь видно, кто действительно двигает
+            компанию вперёд.»
+          </blockquote>
+          <div class="value-grid">
+            <div class="card">
+              <h3>Рост эффективности</h3>
+              <p>Быстрее реализуйте улучшения за счёт полной вовлечённости команд.</p>
+            </div>
+            <div class="card">
+              <h3>Масштаб без расширения штата</h3>
+              <p>Тиражируйте методики и развивайте больше проектов с теми же ресурсами.</p>
+            </div>
+            <div class="card">
+              <h3>Прозрачная мотивация</h3>
+              <p>Видите реальный вклад каждого участника, формируйте честную систему мотивации.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">доказанный эффект</span>
+            <h2>Реальные результаты – наши кейсы</h2>
+            <p>
+              ProdEx помогает компаниям достигать неординарных нефинансовых и экономических результатов без долгих
+              пилотов и сложных внедрений.
+            </p>
+          </div>
+          <div class="case-cards">
+            <div class="card case-card">
+              <h3>Неординарные нефинансовые эффекты</h3>
+              <ul>
+                <li>Снижение количества брака в два раза без инвестиций.</li>
+                <li>Прогноз отраслевых изменений и разработка перспективного проекта с преимуществом.</li>
+                <li>Сокращение оценки целесообразности инвестпроекта с 1 года до 1 дня.</li>
+              </ul>
+            </div>
+            <div class="card case-card">
+              <h3>Неординарные экономические эффекты</h3>
+              <ul>
+                <li>Рост производственной эффективности более чем на 1,5 млрд рублей в год (2021).</li>
+                <li>Программа роста рентабельности и EBITDA в два раза за счёт анализа цепочки.</li>
+                <li>Снижение затрат на инструмент в 2000 раз.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cta-group">
+            <a class="btn-secondary" href="../2_full/v11/cases.html">Узнать подробнее наши кейсы</a>
+            <a class="btn-primary" href="mailto:info@prodexai.ru?subject=Запрос%20демо">Запросить демо</a>
+          </div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">кому подходит</span>
+            <h2>Для кого создан ProdEx</h2>
+          </div>
+          <div class="audience-grid">
+            <a class="audience-card" href="../2_full/v11/audiences.html#owners">
+              <h3>Собственник / CEO</h3>
+              <p>Прозрачность управления и уверенность в том, кому можно доверить развитие актива.</p>
+              <span>Узнать больше →</span>
+            </a>
+            <a class="audience-card" href="../2_full/v11/audiences.html#development">
+              <h3>Директора по развитию и эффективности</h3>
+              <p>Вовлечённость бизнес-юнитов, рост операционной эффективности и скорость трансформации.</p>
+              <span>Узнать больше →</span>
+            </a>
+            <a class="audience-card" href="../2_full/v11/audiences.html#hr">
+              <h3>HR-директор / развитие персонала</h3>
+              <p>Объективные данные об интеллектуальном потенциале и измеримость программ развития.</p>
+              <span>Узнать больше →</span>
+            </a>
+            <a class="audience-card" href="../2_full/v11/audiences.html#consultants">
+              <h3>Консультанты и трекеры</h3>
+              <p>Ведите больше проектов при тех же ресурсах с ассистентом и прозрачной аналитикой.</p>
+              <span>Узнать больше →</span>
+            </a>
+            <a class="audience-card" href="../2_full/v11/audiences.html#education">
+              <h3>Университеты и акселераторы</h3>
+              <p>Цифровизация программ: отслеживайте динамику мышления и эффект обучения.</p>
+              <span>Узнать больше →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="container">
+          <div class="section-header">
+            <span class="section-label">команда</span>
+            <h2>Люди, которые создают ProdEx</h2>
+          </div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div>
+                <strong>Алексей Фоменко</strong>
+                <p>CEO, кандидат технических наук, эксперт по ТРИЗ и операционной эффективности.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div>
+                <strong>Лариса Морковкина</strong>
+                <p>Head of Business Development, бизнес-трекер инновационных проектов, бизнес-методолог, эксперт по ТРИЗ.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div>
+                <strong>Александр Савенков</strong>
+                <p>Консультант по стратегическому управлению, преподаватель MBA/EMBA ВШБ МГУ.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div>
+                <strong>Никита Муромцев</strong>
+                <p>CTO, full-stack разработчик, специалист по автоматизации и ИИ.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="container final-cta" id="contacts">
+          <h2>Начните управлять интеллектуальной работой уже сегодня</h2>
+          <p>
+            ProdEx — это шаг к прозрачной, измеримой и воспроизводимой системе мышления вашей компании.
+          </p>
+          <div class="btn-group" style="justify-content: center">
+            <a class="btn-primary" href="mailto:info@prodexai.ru?subject=Запрос%20демо">🟢 Запросить демо</a>
+            <a class="btn-secondary" href="mailto:info@prodexai.ru?subject=Запрос%20презентации">⚪ Скачать презентацию</a>
+          </div>
+          <h3>Свяжитесь с нами</h3>
+          <div class="contact-links">
+            <a href="mailto:info@prodexai.ru">📩 info@prodexai.ru</a>
+            <span>Telegram: <a href="https://t.me/ProdexTeam" target="_blank" rel="noopener">@ProdexTeam</a></span>
+            <a href="https://www.prodexai.ru" target="_blank" rel="noopener">www.prodexai.ru</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-menu">
+            <a href="#top">Главная</a>
+            <a href="../2_full/v11/audiences.html">Для кого</a>
+            <a href="../2_full/v11/cases.html">Кейсы</a>
+            <a href="../2_full/v11/blog.html">Блог</a>
+            <a href="#contacts">Контакты</a>
+          </div>
+          <div class="footer-contact">
+            <a href="mailto:info@prodexai.ru">info@prodexai.ru</a>
+            <span>Telegram: <a href="https://t.me/ProdexTeam" target="_blank" rel="noopener">@ProdexTeam</a></span>
+            <a href="https://www.prodexai.ru" target="_blank" rel="noopener">prodexai.ru</a>
+          </div>
+          <small class="footer-copy">ProdEx © 2024. Интеллектуальная платформа для роста эффективности.</small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
