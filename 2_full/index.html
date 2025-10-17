@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProdEx — демо-концепции. Серия II</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../1_init/assets/styles.css" />
+    <style>
+      body {
+        background: radial-gradient(
+              circle at top,
+              rgba(80, 80, 255, 0.08),
+              transparent 55%
+            )
+            fixed,
+          #f5f7fb;
+      }
+      .back-nav {
+        margin: 0 auto 24px;
+        max-width: 1200px;
+        padding: 0 20px;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #1d4ed8;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .index {
+        padding: 48px 0 72px;
+      }
+      .index__header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 40px;
+      }
+      .index__title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 48px;
+        margin-bottom: 24px;
+        color: #111827;
+      }
+      .index__subtitle {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #4b5563;
+      }
+      .variant-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .variant-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        text-decoration: none;
+        color: inherit;
+        min-height: 0;
+      }
+      .variant-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+      }
+      .variant-card__heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .variant-card__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .variant-card__label--series {
+        background: rgba(99, 102, 241, 0.12);
+        color: #3730a3;
+      }
+      .variant-card__label--archive {
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+      }
+      .variant-card__title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .variant-card__description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4b5563;
+        margin: 0;
+      }
+      .variant-card__arrow {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        font-size: 20px;
+        transition: transform 0.25s ease;
+      }
+      .variant-card:hover .variant-card__arrow {
+        transform: translateX(4px);
+      }
+      .index > .container {
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      @media (max-width: 1200px) {
+        .variant-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 800px) {
+        .variant-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .index {
+          padding: 72px 0 96px;
+        }
+        .index__title {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="index" id="top">
+      <nav class="back-nav">
+        <a class="back-link" href="../index.html">← На главную</a>
+      </nav>
+      <div class="container">
+
+        <section class="variant-grid">
+          <a class="variant-card" href="v1/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Классический универсальный лендинг</h2>
+              <span class="variant-card__label variant-card__label--series">v1</span>
+            </div>
+            <p class="variant-card__description">
+              Уравновешенный сценарий с привычной структурой: проблема → решение → сегменты → кейсы.
+              Хорошая отправная точка для широкой аудитории.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v2/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Фокус на вовлечении топ-менеджмента</h2>
+              <span class="variant-card__label variant-card__label--series">v2</span>
+            </div>
+            <p class="variant-card__description">
+              Расширенные блоки про управление изменениями и ценность для дирекции, усилена бизнес-
+              терминология и блоки доверия.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v3/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Плотный storytelling с акцентом на ROI</h2>
+              <span class="variant-card__label variant-card__label--series">v3</span>
+            </div>
+            <p class="variant-card__description">
+              Лонгрид с чередованием фактов и историй успеха, подчёркивает экономический эффект и
+              путь клиента от боли до результата.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v4/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Платформа как управленческий ассистент</h2>
+              <span class="variant-card__label variant-card__label--series">v4</span>
+            </div>
+            <p class="variant-card__description">
+              Более технологичный язык и визуальные подсекции для продуктов, ориентирован на интеграцию
+              в процессы и команды трансформации.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v5/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Интенсивная посадочная с социальным доказательством</h2>
+              <span class="variant-card__label variant-card__label--series">v5</span>
+            </div>
+            <p class="variant-card__description">
+              Усиленная витрина кейсов, блоки отзывов и цифр. Подходит для ситуаций, когда главное —
+              показать доказательства и метрики.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v6/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Продукт для операционных команд</h2>
+              <span class="variant-card__label variant-card__label--series">v6</span>
+            </div>
+            <p class="variant-card__description">
+              Наглядно раскрывает цикл работы: от постановки задачи до аналитики, акцентирует контроль
+              сроков и прозрачность взаимодействий.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v7/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Экспертная платформа для консалтинга</h2>
+              <span class="variant-card__label variant-card__label--series">v7</span>
+            </div>
+            <p class="variant-card__description">
+              Показывает, как ProdEx помогает методологам и трекерам масштабировать проекты, содержит
+              отдельные CTA под партнёрства.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v8/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Идеи → действия → измеримый результат</h2>
+              <span class="variant-card__label variant-card__label--series">v8</span>
+            </div>
+            <p class="variant-card__description">
+              Динамичная структура с акцентом на путь пользователя, визуальные шаги и элементы
+              продуктового подхода.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v9/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Лендинг для CEO и инвесторов</h2>
+              <span class="variant-card__label variant-card__label--series">v9</span>
+            </div>
+            <p class="variant-card__description">
+              Компактные, но ёмкие блоки с визуализацией выгод для собственников, фокус на прозрачности
+              активов и управлении портфелем.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v10/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Платформа роста эффективности</h2>
+              <span class="variant-card__label variant-card__label--series">v10</span>
+            </div>
+            <p class="variant-card__description">
+              Развивает тему масштабирования лучших практик, подчёркивает скорость внедрения и готовые
+              сценарии для разных функций.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+
+          <a class="variant-card" href="v11/index.html">
+            <div class="variant-card__heading">
+              <h2 class="variant-card__title">Интеллектуальная операционная система</h2>
+              <span class="variant-card__label variant-card__label--series">v11</span>
+            </div>
+            <p class="variant-card__description">
+              Современная визуальная подача с модульной навигацией по страницам, подчёркивает ProdEx как
+              единую среду стратегических инициатив.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+</section>
+      </div>
+    </main>
+  </body>
+</html>
