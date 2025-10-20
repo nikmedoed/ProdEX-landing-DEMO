@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProdEx — демо-концепции. Серия V</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../1_init/assets/styles.css" />
+    <style>
+      body {
+        background: radial-gradient(
+              circle at top,
+              rgba(80, 80, 255, 0.08),
+              transparent 55%
+            )
+            fixed,
+          #f5f7fb;
+      }
+      .index {
+        padding: 48px 0 72px;
+      }
+      .back-nav {
+        width: min(1200px, calc(100vw - 40px));
+        margin: 0 auto 32px;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: #1d4ed8;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .index__header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 40px;
+      }
+      .index__title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: clamp(32px, 5vw, 48px);
+        margin-bottom: 20px;
+        color: #111827;
+      }
+      .index__subtitle {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #4b5563;
+      }
+      .variant-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+      .variant-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        text-decoration: none;
+        color: inherit;
+        min-height: 0;
+      }
+      .variant-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+      }
+      .variant-card__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+      }
+      .variant-card__title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .variant-card__description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4b5563;
+        margin: 0;
+      }
+      .variant-card__arrow {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        font-size: 20px;
+        transition: transform 0.25s ease;
+      }
+      .variant-card:hover .variant-card__arrow {
+        transform: translateX(4px);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="index" id="top">
+      <div class="back-nav">
+        <a class="back-link" href="../index.html">← Назад к архиву ProdEx</a>
+      </div>
+      <div class="container">
+        <header class="index__header">
+          <h1 class="index__title">Серия V — продуктовые концепты</h1>
+          <p class="index__subtitle">
+            Четыре рабочих версии ProdEx с акцентом на реальный цифровой след интеллектуальной работы,
+            фасилитацию ИИ и управляемое внедрение трансформаций.
+          </p>
+        </header>
+        <section class="variant-grid">
+          <a class="variant-card" href="v1/index.html">
+            <span class="variant-card__label">v1</span>
+            <h2 class="variant-card__title">Живой прогресс и метрики эффекта</h2>
+            <p class="variant-card__description">
+              Базовая версия с акцентом на измеримость вклада команд, быстрый выход на эффект и наглядные метрики
+              прогресса.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+          <a class="variant-card" href="v2/index.html">
+            <span class="variant-card__label">v2</span>
+            <h2 class="variant-card__title">ИИ-фасилитация стратегических сессий</h2>
+            <p class="variant-card__description">
+              Версия, где подчёркнута работа ИИ в проведении обсуждений, автоматическое ведение цифрового следа и
+              экономия ручных отчётов.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+          <a class="variant-card" href="v3/index.html">
+            <span class="variant-card__label">v3</span>
+            <h2 class="variant-card__title">Pulse-аналитика и сценарии роста</h2>
+            <p class="variant-card__description">
+              Обновлённая визуализация с живой статистикой ProdEx Pulse, подсветкой вовлечённости и библиотекой
+              сценариев развития.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+          <a class="variant-card" href="v4/index.html">
+            <span class="variant-card__label">v4</span>
+            <h2 class="variant-card__title">Единое цифровое пространство команды</h2>
+            <p class="variant-card__description">
+              Версия про совместную работу: нейро-трекер мышления, управляемые дашборды и общее поле для лидеров,
+              консультантов и команд.
+            </p>
+            <span class="variant-card__arrow">→</span>
+          </a>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

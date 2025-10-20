@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProdEx — интеллект под управлением</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <nav>
+        <div class="nav-inner">
+          <a class="logo" href="../index.html">PRODEX</a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="sr-only">Открыть меню</span>
+          </button>
+          <div class="nav-links" id="primary-navigation">
+            <a href="#top">Главная</a>
+            <div class="dropdown">
+              <button
+                class="dropdown-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="nav-for-whom-menu"
+                id="nav-for-whom-toggle"
+              >
+                Для кого
+                <svg viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M2.2 4.2a.7.7 0 0 1 .99-.1l2.81 2.38 2.81-2.38a.7.7 0 1 1 .9 1.08l-3.3 2.8a.7.7 0 0 1-.9 0l-3.3-2.8a.7.7 0 0 1-.1-.99Z" />
+                </svg>
+              </button>
+              <div class="dropdown-menu" id="nav-for-whom-menu" role="menu" aria-labelledby="nav-for-whom-toggle">
+                <a href="owners.html" role="menuitem">Собственникам и СЕО</a>
+                <a href="development-directors.html" role="menuitem">Директорам по развитию</a>
+                <a href="hr-directors.html" role="menuitem">HR-директорам</a>
+                <a href="consultants.html" role="menuitem">Консультантам и трекерам</a>
+                <a href="universities.html" role="menuitem">Университетам и акселераторам</a>
+              </div>
+            </div>
+            <a href="#challenge">Вызов</a>
+            <a href="#metrics">Цифры</a>
+            <a href="#voices">Отзывы</a>
+            <a href="#faq">FAQ</a>
+            <a href="cases.html">Кейсы</a>
+            <a href="blog.html">Блог</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
+
+      <main>
+        <header class="hero" id="top">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-inner">
+            <div class="hero-content">
+              <span class="hero-eyebrow">платформа интеллектуальной работы</span>
+              <h1>ProdEx — система, которая делает интеллектуальную работу видимой</h1>
+              <p class="lead">
+                Платформа для управления интеллектуальным трудом, выявления точек роста и усиления командного мышления.
+              </p>
+              <ul class="hero-checklist" role="list">
+                <li>
+                  <span class="hero-icon" aria-hidden="true">✦</span>
+                  <span>ИИ фиксирует цифровой след решений и предлагает сильные ходы</span>
+                </li>
+                <li>
+                  <span class="hero-icon" aria-hidden="true">✦</span>
+                  <span>Лидеры видят вовлечённость и прогресс команды в режиме реального времени</span>
+                </li>
+                <li>
+                  <span class="hero-icon" aria-hidden="true">✦</span>
+                  <span>Лучшие методологии доступны каждому сотруднику без очного наставника</span>
+                </li>
+              </ul>
+              <div class="btn-group">
+                <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
+                <a class="btn-secondary" href="assets/prodex-presentation.pdf">Скачать презентацию</a>
+              </div>
+              <div class="hero-stats" role="list">
+                <div class="hero-stat" role="listitem">
+                  <span class="hero-stat-number" data-counter-value="12000" data-counter-suffix="+">0</span>
+                  <span class="hero-stat-label">часов интеллектуальной работы оцифровано</span>
+                </div>
+                <div class="hero-stat" role="listitem">
+                  <span class="hero-stat-number" data-counter-value="38" data-counter-suffix="%">0</span>
+                  <span class="hero-stat-label">ускорение внедрения улучшений в компаниях клиентов</span>
+                </div>
+                <div class="hero-stat" role="listitem">
+                  <span class="hero-stat-number" data-counter-value="4.7" data-counter-decimals="1">0</span>
+                  <span class="hero-stat-label">средняя оценка команд за качество решений по данным ProdEx</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-showcase">
+              <div class="hero-panel" data-parallax data-parallax-depth="38">
+                <div class="hero-panel-header">
+                  <span class="hero-panel-pill">ProdEx Pulse</span>
+                  <span class="hero-panel-time">LIVE 24/7</span>
+                </div>
+                <div class="hero-panel-body">
+                  <div class="hero-progress-item" data-progress="82">
+                    <div class="hero-progress-label">
+                      <span>Трансформация операций</span>
+                      <span class="hero-progress-value">82%</span>
+                    </div>
+                    <div class="hero-progress-bar"><span></span></div>
+                  </div>
+                  <div class="hero-progress-item" data-progress="64">
+                    <div class="hero-progress-label">
+                      <span>Запуск новых продуктов</span>
+                      <span class="hero-progress-value">64%</span>
+                    </div>
+                    <div class="hero-progress-bar"><span></span></div>
+                  </div>
+                  <div class="hero-progress-item" data-progress="91">
+                    <div class="hero-progress-label">
+                      <span>Снижение потерь</span>
+                      <span class="hero-progress-value">91%</span>
+                    </div>
+                    <div class="hero-progress-bar"><span></span></div>
+                  </div>
+                  <ul class="hero-insights" role="list">
+                    <li>
+                      <strong>ИИ-компас</strong>
+                      <p>Подсказывает гипотезы с наибольшим экономическим потенциалом</p>
+                    </li>
+                    <li>
+                      <strong>Фокус сессии</strong>
+                      <p>Следит за балансом стратегических и операционных задач в команде</p>
+                    </li>
+                    <li>
+                      <strong>Сигналы риска</strong>
+                      <p>Предупреждает о затухании инициатив и предлагает перезапуск</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="hero-floating-card" data-parallax data-parallax-depth="60">
+                <strong>Focus Sprint · 48 часов</strong>
+                <p>Команда видит 16 новых идей, 8 из них готовы к немедленному внедрению.</p>
+                <span>ИИ-ассистент подготовил 12 точечных подсказок</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="signal-band" aria-label="Ключевые эффекты ProdEx">
+          <div class="signal-track" data-marquee>
+            <div class="signal-item">AI-компас решений · Прозрачность команды · Экономический эффект ×2</div>
+            <div class="signal-item">72% идей доходят до внедрения · Отчёты за секунды · Управляемое мышление</div>
+            <div class="signal-item">Глубокая вовлечённость · Общая методология · Пульс инициатив</div>
+            <div class="signal-item">AI-компас решений · Прозрачность команды · Экономический эффект ×2</div>
+            <div class="signal-item">72% идей доходят до внедрения · Отчёты за секунды · Управляемое мышление</div>
+            <div class="signal-item">Глубокая вовлечённость · Общая методология · Пульс инициатив</div>
+          </div>
+        </section>
+
+        <section class="section" id="challenge">
+          <span class="section-kicker">вызов</span>
+          <div class="section-header">
+            <h2>Почему компании теряют эффективность</h2>
+            <p>
+              <a href="blog.html#efficiency">76% проектов</a> повышения эффективности не достигают ожидаемого результата (Bain &amp;
+              Company). Команды перегружены операционными задачами, интеллектуальная работа остаётся невидимой, а
+              зависимость от экспертов тормозит масштабирование практик.
+            </p>
+          </div>
+          <div class="three-cards">
+            <div class="info-card">
+              <h3>Перегруз операционкой</h3>
+              <p>Команды тонут в рутине и не успевают довести стратегические идеи до внедрения.</p>
+            </div>
+            <div class="info-card">
+              <h3>Невидимый прогресс</h3>
+              <p>Нет прозрачного цифрового следа, поэтому сложно оценить ход работы и вклад участников.</p>
+            </div>
+            <div class="info-card">
+              <h3>Зависимость от экспертов</h3>
+              <p>Методологии живут в головах наставников, что ограничивает тиражирование и скорость изменений.</p>
+            </div>
+          </div>
+          <blockquote>Идеи рождаются, но не превращаются в конкретные улучшения и экономический эффект.</blockquote>
+        </section>
+
+        <section class="section" id="solution">
+          <span class="section-kicker">решение</span>
+          <div class="section-header">
+            <h2>ProdEx переводит мышление команды в цифровую среду</h2>
+            <p>
+              Платформа задаёт алгоритмы размышлений и фиксирует цифровой след интеллектуальной работы. Каждое действие,
+              мысль и решение становятся прозрачными и воспроизводимыми.
+            </p>
+          </div>
+          <blockquote>«Вы начинаете видеть то, что раньше было невидимо.»</blockquote>
+        </section>
+
+        <section class="section metrics" id="metrics">
+          <span class="section-kicker">эффект в цифрах</span>
+          <div class="section-header">
+            <h2>Цифровой пульс трансформации</h2>
+            <p>ProdEx собирает и анализирует данные в потоке, помогая руководителю принимать решения быстрее и точнее.</p>
+          </div>
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <header>
+                <span class="metric-number" data-counter-value="2.4" data-counter-decimals="1">0</span>
+                <span class="metric-delta">x</span>
+              </header>
+              <p>рост скорости принятия решений благодаря доступу к единому цифровому следу</p>
+            </article>
+            <article class="metric-card">
+              <header>
+                <span class="metric-number" data-counter-value="72" data-counter-suffix="%">0</span>
+              </header>
+              <p>идей доходит до внедрения за счёт структурированного командного мышления</p>
+            </article>
+            <article class="metric-card">
+              <header>
+                <span class="metric-number" data-counter-value="18" data-counter-suffix="дней">0</span>
+              </header>
+              <p>средний срок запуска волны трансформации от старта до первых эффектов</p>
+            </article>
+            <article class="metric-card">
+              <header>
+                <span class="metric-number" data-counter-value="96" data-counter-suffix="%">0</span>
+              </header>
+              <p>участников ощущают рост вовлечённости после первых спринтов в ProdEx</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="mechanics">
+          <span class="section-kicker">механика</span>
+          <div class="section-header">
+            <h2>Как это работает</h2>
+            <p>ProdEx превращает обсуждения в управляемый поток создания ценности</p>
+          </div>
+          <div class="vertical-track">
+            <div class="track-item">
+              <strong>1. Алгоритмы мышления</strong>
+              <span>Интерактивные шаблоны ведут команду по шагам решения задач</span>
+            </div>
+            <div class="track-item">
+              <strong>2. Цифровой след</strong>
+              <span>Система фиксирует вклад каждого участника и уровень вовлечённости</span>
+            </div>
+            <div class="track-item">
+              <strong>3. ИИ-ассистент</strong>
+              <span>Задаёт вопросы, удерживает структуру мышления и поддерживает команду</span>
+            </div>
+            <div class="track-item">
+              <strong>4. Автоматическая аналитика</strong>
+              <span>Руководитель видит реальное продвижение проектов в режиме реального времени</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section ai-suite" id="ai-suite">
+          <span class="section-kicker">интеллектуальный инструментарий</span>
+          <div class="section-header">
+            <h2>Что получает команда с ProdEx</h2>
+            <p>Интерактивные среды для совместного мышления, автоматический анализ и помощь ИИ в каждом шаге.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card" data-parallax data-parallax-depth="36">
+              <span class="feature-icon" aria-hidden="true">⚡</span>
+              <h3>Живые сценарии</h3>
+              <p>Режимы стратегических и оперативных сессий, которые настраиваются под вашу индустрию и цели.</p>
+              <ul>
+                <li>Пошаговые чек-листы и подсказки</li>
+                <li>Общие холсты для формирования решений</li>
+                <li>Гибкое редактирование и контроль версий</li>
+              </ul>
+            </article>
+            <article class="feature-card" data-parallax data-parallax-depth="28">
+              <span class="feature-icon" aria-hidden="true">🤖</span>
+              <h3>ИИ-коуч</h3>
+              <p>Отвечает на вопросы команды, подсказывает, как усилить аргументы и какие данные собрать.</p>
+              <ul>
+                <li>Анализ полноты и глубины мышления</li>
+                <li>Генерация вопросов для лидеров</li>
+                <li>Поддержка в подготовке решений</li>
+              </ul>
+            </article>
+            <article class="feature-card" data-parallax data-parallax-depth="44">
+              <span class="feature-icon" aria-hidden="true">📊</span>
+              <h3>Интеллектуальная аналитика</h3>
+              <p>Визуализирует прогресс, выявляет риски и показывает вклад каждого участника без ручных отчётов.</p>
+              <ul>
+                <li>Контроль динамики идей и эффектов</li>
+                <li>Сигналы вовлечённости и рисков</li>
+                <li>Экспорт результатов и презентаций</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="value">
+          <span class="section-kicker">ценность</span>
+          <div class="section-header">
+            <h2>Почему компании выбирают ProdEx</h2>
+            <p>От ускорения эффектов до уверенности в людях — платформа даёт данные для объективных решений.</p>
+          </div>
+          <div class="grid-3">
+            <div class="info-card">
+              <h3>Ускоряет рост эффективности</h3>
+              <p>Вовлекайте сотрудников в развитие бизнеса и быстрее внедряйте улучшения.</p>
+            </div>
+            <div class="info-card">
+              <h3>Масштабирует практики</h3>
+              <p>Тиражируйте лучшие методики без увеличения штата консультантов и экспертов.</p>
+            </div>
+            <div class="info-card">
+              <h3>Делает мотивацию честной</h3>
+              <p>Видите вклад каждого участника и формируйте прозрачную систему вознаграждения.</p>
+            </div>
+          </div>
+          <blockquote>
+            «Мы превратили интеллектуальную работу из невидимой в управляемую.<br />Теперь видно, кто действительно
+            двигает компанию вперёд.»
+          </blockquote>
+        </section>
+
+        <section class="section" id="cases">
+          <span class="section-kicker">доказанный эффект</span>
+          <div class="section-header">
+            <h2>Реальные результаты&nbsp;—<br class="cases-title-break" />наши кейсы</h2>
+            <p>ProdEx помогает компаниям достигать неординарных нефинансовых<br />и экономических эффектов без длинных
+              пилотов</p>
+          </div>
+          <div class="cases-grid">
+            <div class="cases-card">
+              <h3>Неординарные нефинансовые эффекты</h3>
+              <ul>
+                <li>Снижение количества брака в два раза без инвестиций</li>
+                <li>Прогноз отраслевых изменений и запуск проекта с конкурентным преимуществом</li>
+                <li>Сокращение оценки инвестпроекта с 1 года до 1 дня</li>
+              </ul>
+            </div>
+            <div class="cases-card">
+              <h3>Неординарные экономические эффекты</h3>
+              <ul>
+                <li>Рост производственной эффективности более чем на 1,5 млрд рублей в год (2021)</li>
+                <li>Программа роста рентабельности и EBITDA в два раза по сети заводов</li>
+                <li>Снижение затрат на инструмент в 2000 раз</li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group" style="margin-top: 32px">
+            <a class="btn-secondary" href="cases.html">Узнать подробнее наши кейсы</a>
+            <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
+          </div>
+        </section>
+
+        <section class="section journey" id="journey">
+          <span class="section-kicker">путь внедрения</span>
+          <div class="section-header">
+            <h2>Сценарий внедрения ProdEx</h2>
+            <p>От первых гипотез до масштабирования культуры мышления — каждая фаза прозрачна и измерима.</p>
+          </div>
+          <div class="journey-grid">
+            <article class="journey-step">
+              <span class="journey-step-number">01</span>
+              <h3>Диагностика</h3>
+              <p>Сканируем текущие процессы, определяем ключевые зоны роста и настраиваем сценарии сессий.</p>
+            </article>
+            <article class="journey-step">
+              <span class="journey-step-number">02</span>
+              <h3>Запуск спринтов</h3>
+              <p>Команды работают в цифровых шаблонах, ИИ сопровождает мышление и подсвечивает решения.</p>
+            </article>
+            <article class="journey-step">
+              <span class="journey-step-number">03</span>
+              <h3>Аналитика и эффекты</h3>
+              <p>Руководители получают панель прогресса, фиксируют эффекты и масштабируют практики на всю организацию.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section testimonials" id="voices">
+          <span class="section-kicker">голос клиентов</span>
+          <div class="section-header">
+            <h2>Что говорят команды о ProdEx</h2>
+            <p>Отзывы тех, кто уже перешёл на управляемое интеллектуальное мышление.</p>
+          </div>
+          <div class="testimonials-shell" data-testimonials data-autoplay="8000">
+            <button class="testimonials-control" type="button" data-testimonials-prev aria-label="Предыдущий отзыв">
+              <span aria-hidden="true">←</span>
+            </button>
+            <div class="testimonials-track" data-testimonials-track>
+              <article class="testimonial" data-active>
+                <p class="testimonial-quote">
+                  «ProdEx позволил нам увидеть, где идеи теряют энергию. Мы закрыли разрыв между стратегией и действиями за
+                  два спринта.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Анна Л. — директор по развитию</strong>
+                  <span>Промышленный холдинг</span>
+                </div>
+              </article>
+              <article class="testimonial">
+                <p class="testimonial-quote">
+                  «ИИ-ассистент помогает команде формулировать мысли глубже. Качество решений выросло, а встречи стали
+                  короче и продуктивнее.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Илья С. — руководитель инноваций</strong>
+                  <span>Ритейл</span>
+                </div>
+              </article>
+              <article class="testimonial">
+                <p class="testimonial-quote">
+                  «У нас появился единый цифровой след проектов. Руководству не нужно ждать отчётов, чтобы принять
+                  решение.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Мария К. — CEO</strong>
+                  <span>Технологическая компания</span>
+                </div>
+              </article>
+            </div>
+            <button class="testimonials-control" type="button" data-testimonials-next aria-label="Следующий отзыв">
+              <span aria-hidden="true">→</span>
+            </button>
+            <div class="testimonials-dots" role="tablist" aria-label="Отзывы клиентов"></div>
+          </div>
+        </section>
+
+        <section class="section" id="audiences">
+          <span class="section-kicker">для кого</span>
+          <div class="section-header">
+            <h2>Для кого создан ProdEx</h2>
+            <p>Выберите роль, чтобы увидеть специализированную ценность и сценарии внедрения.</p>
+          </div>
+          <div class="audience-grid">
+            <a class="audience-card" href="owners.html" id="audience-owners">
+              <strong>Собственник / CEO</strong>
+              <p>
+                Получите уверенность в эффективности команды и фактическую картину вклада каждого участника без ручного
+                контроля
+              </p>
+              <span>Узнать больше</span>
+            </a>
+            <a class="audience-card" href="development-directors.html" id="audience-development">
+              <strong>Директора по развитию</strong>
+              <p>Вовлекайте бизнес-юниты, ускоряйте трансформацию и управляйте портфелем инициатив</p>
+              <span>Узнать больше</span>
+            </a>
+            <a class="audience-card" href="operations.html" id="audience-operations">
+              <strong>Операционные директора</strong>
+              <p>Ускоряйте рост операционной эффективности за счет большего вовлечения персонала</p>
+              <span>Узнать больше</span>
+            </a>
+            <a class="audience-card" href="hr-directors.html" id="audience-hr">
+              <strong>HR-директор</strong>
+              <p>Получайте объективные данные о потенциале сотрудников и результатах программ развития</p>
+              <span>Узнать больше</span>
+            </a>
+            <a class="audience-card" href="consultants.html" id="audience-consultants">
+              <strong>Консультанты и трекеры</strong>
+              <p>Ведите больше проектов при тех же ресурсах, опираясь на интеллектуального ассистента</p>
+              <span>Узнать больше</span>
+            </a>
+            <a class="audience-card" href="universities.html" id="audience-universities">
+              <strong>Университеты и акселераторы</strong>
+              <p>Управляйте образовательной динамикой в реальном времени, измеряйте качество мышления учащихся</p>
+              <span>Узнать больше</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="team">
+          <span class="section-kicker">наши эксперты</span>
+          <div class="section-header">
+            <h2>Люди, которые создают ProdEx</h2>
+            <p>Эксперты по управлению, методологии и технологиям, объединённые целью сделать интеллектуальную работу управляемой.</p>
+          </div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="avatar">АФ</div>
+              <strong>Алексей Фоменко</strong>
+              <p>К.т.н, эксперт по ТРИЗ и управлению интеллектуальным трудом.</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">ЛМ</div>
+              <strong>Лариса Морковкина</strong>
+              <p>Бизнес-трекер инновационных проектов, бизнес-методолог, эксперт по ТРИЗ.</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">АС</div>
+              <strong>Александр Савенков</strong>
+              <p>Консультант по стратегическому управлению, преподаватель MBA/EMBA ВШБ МГУ.</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">НМ</div>
+              <strong>Никита Муромцев</strong>
+              <p>Эксперт по автоматизации бизнес-процессов и ИИ, профессиональный решатель бизнес-проблем</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section faq" id="faq">
+          <span class="section-kicker">частые вопросы</span>
+          <div class="section-header">
+            <h2>Ответы, которые помогут стартовать быстрее</h2>
+            <p>Собрали популярные вопросы руководителей и команд при переходе на ProdEx.</p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" data-faq>
+                <span>Сколько времени занимает запуск платформы?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel" hidden>
+                <p>Первые сессии проходят уже через 10–14 дней. Мы проводим диагностику, настраиваем сценарии и обучаем ключевых участников.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" data-faq>
+                <span>Можно ли интегрировать ProdEx с нашими системами?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel" hidden>
+                <p>Да, ProdEx поддерживает интеграции с корпоративными порталами, BI и системами задач через API и готовые коннекторы.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" data-faq>
+                <span>Как измеряется эффект от внедрения?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel" hidden>
+                <p>Мы фиксируем цифровой след решений, отслеживаем экономические и нефинансовые эффекты, строим регулярные отчёты и бенчмарки.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" data-faq>
+                <span>Какой уровень поддержки предоставляет команда ProdEx?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel" hidden>
+                <p>Каждому клиенту доступен методолог и Customer Success-менеджер. Они помогают адаптировать платформу и масштабировать практики.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-final" id="cta">
+          <h2>Начните управлять интеллектуальной работой уже сегодня</h2>
+          <p>ProdEx — это шаг к прозрачной, измеримой и воспроизводимой системе мышления вашей компании.</p>
+          <div class="btn-group">
+            <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
+            <a class="btn-secondary" href="assets/prodex-presentation.pdf">Скачать презентацию</a>
+          </div>
+          <div class="contact-line">
+            <span><strong>Свяжитесь с нами</strong></span>
+            <a href="mailto:info@prodexai.ru">info@prodexai.ru</a>
+            <span>Telegram: <a href="https://t.me/ProdexTeam">@ProdexTeam</a></span>
+            <a href="https://www.prodexai.ru" target="_blank" rel="noopener">www.prodexai.ru</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <div class="footer-links">
+            <a class="logo" href="../index.html">PRODEX</a>
+            <a href="mailto:info@prodexai.ru">info@prodexai.ru</a>
+            <span>Telegram: @ProdexTeam</span>
+            <a href="https://www.prodexai.ru" target="_blank" rel="noopener">prodexai.ru</a>
+          </div>
+          <div class="btn-group">
+            <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
+            <a class="btn-secondary" href="assets/prodex-presentation.pdf">Скачать презентацию</a>
+          </div>
+          <div class="footer-menu">
+            <a href="#top">Главная</a>
+            <a href="#challenge">Вызов</a>
+            <a href="#solution">Решение</a>
+            <a href="#metrics">Цифры</a>
+            <a href="#mechanics">Механика</a>
+            <a href="#cases">Кейсы</a>
+            <a href="#journey">Внедрение</a>
+            <a href="#voices">Отзывы</a>
+            <a href="#faq">FAQ</a>
+            <a href="#audiences">Для кого</a>
+            <a href="#team">Наши эксперты</a>
+            <a href="blog.html">Блог</a>
+            <a href="contacts.html">Контакты</a>
+          </div>
+          <small>ProdEx © 2024. Интеллектуальная платформа для роста эффективности.</small>
+        </div>
+      </footer>
+      <script src="scripts.js"></script>
+    </div>
+  </body>
+</html>

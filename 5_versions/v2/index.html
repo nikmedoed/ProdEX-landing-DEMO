@@ -57,8 +57,8 @@
       <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
 
       <main>
-        <header class="hero" id="top">
-        <div>
+        <header class="hero" id="top" data-reveal>
+          <div class="hero-content" data-reveal>
           <span class="hero-eyebrow">платформа интеллектуальной работы</span>
           <h1>ProdEx — система, которая делает интеллектуальную работу видимой</h1>
           <p class="lead">Платформа для управления интеллектуальным трудом и командным мышлением.</p>
@@ -66,7 +66,46 @@
             <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
             <a class="btn-secondary" href="assets/prodex-presentation.pdf">Скачать презентацию</a>
           </div>
-        </div>
+          <ul class="hero-benefits">
+            <li>ИИ удерживает структуру обсуждений и подсказывает шаги команды</li>
+            <li>Все ключевые решения фиксируются в цифровом следе без ручных отчётов</li>
+            <li>Гибкие сценарии: от стратегических сессий до ежедневных операционных встреч</li>
+          </ul>
+          <div class="hero-trust" data-reveal>
+            <span>Уже внедряют ProdEx</span>
+            <div class="hero-trust-metrics">
+              <strong>500+ лидеров</strong>
+              <span>12 отраслей</span>
+            </div>
+          </div>
+          </div>
+          <aside class="hero-card" data-reveal>
+          <h3>Новая прозрачность для команд</h3>
+          <p>Снимите «туман» вокруг стратегических проектов, собирая цифровой след решений и вклад каждого участника.</p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span
+                class="stat-number"
+                data-count-to="3.5"
+                data-count-decimals="1"
+                data-count-suffix="x"
+                data-count-duration="1800"
+                >0</span
+              >
+              <p>быстрее путь от идеи до эффекта</p>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count-to="92" data-count-suffix="%" data-count-duration="1600">0</span>
+              <p>участников сохраняют вовлечённость на протяжении всей сессии</p>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count-to="18" data-count-suffix=" ч" data-count-duration="2000">0</span>
+              <p>в ручных отчётах экономит одна команда в месяц</p>
+            </div>
+          </div>
+          </aside>
+          <span class="hero-orb hero-orb--one" aria-hidden="true"></span>
+          <span class="hero-orb hero-orb--two" aria-hidden="true"></span>
       </header>
 
       <section class="section" id="challenge">
@@ -106,6 +145,100 @@
           </p>
         </div>
         <blockquote>«Вы начинаете видеть то, что раньше было невидимо.»</blockquote>
+      </section>
+
+      <section class="section section-alt" id="experience">
+        <span class="section-kicker">погружение</span>
+        <div class="section-header" data-reveal>
+          <h2>Выберите сценарий — ProdEx настроится под ваш стиль мышления</h2>
+          <p>Готовые маршруты помогают командам быстро перейти к сути, а ИИ-ассистент обеспечивает структуру и глубину.</p>
+        </div>
+        <div class="experience-layout" data-reveal>
+          <div class="experience-tabs" role="tablist" aria-label="Сценарии ProdEx">
+            <button
+              class="experience-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="experience-panel-strategy"
+              id="experience-tab-strategy"
+              data-experience-target="strategy"
+            >
+              Стратегические сессии
+            </button>
+            <button
+              class="experience-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="experience-panel-operations"
+              id="experience-tab-operations"
+              data-experience-target="operations"
+            >
+              Операционные штабы
+            </button>
+            <button
+              class="experience-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="experience-panel-learning"
+              id="experience-tab-learning"
+              data-experience-target="learning"
+            >
+              Обучение и акселерация
+            </button>
+          </div>
+          <div class="experience-panels">
+            <article
+              class="experience-panel is-active"
+              id="experience-panel-strategy"
+              role="tabpanel"
+              aria-labelledby="experience-tab-strategy"
+              data-experience-panel="strategy"
+            >
+              <h3>Формируйте стратегию с доказательством каждой гипотезы</h3>
+              <p>Совместно оценивайте риски и эффекты, формируйте портфель инициатив и отслеживайте реализацию в единой ленте.</p>
+              <ul class="experience-points">
+                <li>Мэппинг контекстов и гипотез с прозрачным статусом</li>
+                <li>AI-помощник подсказывает, где углубить анализ</li>
+                <li>Лёгкая интеграция выводов в OKR и планы трансформации</li>
+              </ul>
+            </article>
+            <article
+              class="experience-panel"
+              id="experience-panel-operations"
+              role="tabpanel"
+              aria-labelledby="experience-tab-operations"
+              data-experience-panel="operations"
+              hidden
+            >
+              <h3>Повышайте операционную эффективность на ежедневных циклах</h3>
+              <p>Каждая встреча завершается конкретными действиями, а цифровой след помогает не терять ответственность и сроки.</p>
+              <ul class="experience-points">
+                <li>Готовые сценарии для Kaizen, Lean и производственных штабов</li>
+                <li>Автосбор статистики по внедрению улучшений</li>
+                <li>Мгновенные отчёты для руководителей и собственников</li>
+              </ul>
+            </article>
+            <article
+              class="experience-panel"
+              id="experience-panel-learning"
+              role="tabpanel"
+              aria-labelledby="experience-tab-learning"
+              data-experience-panel="learning"
+              hidden
+            >
+              <h3>Превратите обучение в измеримый рост компетенций</h3>
+              <p>Треки развития строятся на данных о ходе мышления и командном взаимодействии, а не на субъективной оценке.</p>
+              <ul class="experience-points">
+                <li>Анализ глубины ответов и качества решений в реальном времени</li>
+                <li>Геймифицированные челленджи, поддерживаемые ИИ-наставником</li>
+                <li>Отслеживание прогресса групп и отдельных участников</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="mechanics">
@@ -160,6 +293,41 @@
         </blockquote>
       </section>
 
+      <section class="section" id="insights">
+        <span class="section-kicker">пульс команды</span>
+        <div class="section-header" data-reveal>
+          <h2>Видеть динамику в моменте, а не задним числом</h2>
+          <p>ProdEx превращает активность команды в поток аналитики: от эмоционального тона до глубины решений.</p>
+        </div>
+        <div class="journey-map" data-reveal>
+          <div class="journey-step">
+            <div class="journey-icon">01</div>
+            <div>
+              <h3>Единое поле данных</h3>
+              <p>Каждый артефакт обсуждения мгновенно попадает в базу знаний — без копирования и ручных конспектов.</p>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-icon">02</div>
+            <div>
+              <h3>Аналитика вовлечённости</h3>
+              <p>Следите за распределением голоса и вкладом участников, чтобы вовремя поддерживать команду.</p>
+            </div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-icon">03</div>
+            <div>
+              <h3>Прогноз эффекта</h3>
+              <p>ИИ оценивает вероятность реализации идей и даёт подсказки, где усилить аргументацию и расчёты.</p>
+            </div>
+          </div>
+          <div class="journey-highlight">
+            <span class="stat-number" data-count-to="68" data-count-suffix="%" data-count-duration="2200">0</span>
+            <p>компаний фиксируют рост скорости принятия решений после внедрения ProdEx</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="cases">
         <span class="section-kicker">доказанный эффект</span>
         <div class="section-header">
@@ -187,6 +355,46 @@
         <div class="btn-group" style="margin-top: 32px">
           <a class="btn-secondary" href="cases.html">Узнать подробнее наши кейсы</a>
           <a class="btn-primary" href="contacts.html#demo">Запросить демо</a>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="testimonials">
+        <span class="section-kicker">обратная связь</span>
+        <div class="section-header" data-reveal>
+          <h2>Команды рассказывают, как ProdEx меняет их работу</h2>
+          <p>Мы спросили руководителей и фасилитаторов, что стало главным прорывом после внедрения платформы.</p>
+        </div>
+        <div class="testimonials-grid" data-reveal>
+          <figure class="testimonial-card">
+            <blockquote>
+              «Платформа позволила нам завершить стратегическую сессию за два дня, а не за неделю. Мы видим, кто и как
+              влияет на итоговое решение, и можем возвращаться к логике выводов.»
+            </blockquote>
+            <figcaption>
+              <strong>Ирина Кузнецова</strong>
+              <span>Директор по развитию, промышленный холдинг</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <blockquote>
+              «Продвинутые шаблоны ProdEx задают тон дискуссии и экономят часы подготовки. Теперь у нас единая база знаний,
+              в которой живут все решения и гипотезы команд.»
+            </blockquote>
+            <figcaption>
+              <strong>Михаил Долгов</strong>
+              <span>Руководитель проектного офиса</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <blockquote>
+              «Для акселерационных программ важна скорость обратной связи. ProdEx показывает глубину мышления участников и
+              помогает трекерам работать точечно, а не по наитию.»
+            </blockquote>
+            <figcaption>
+              <strong>Анна Ветрова</strong>
+              <span>Руководитель корпоративного акселератора</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -230,6 +438,31 @@
             <p>Управляйте образовательной динамикой в реальном времени, измеряйте качество мышления учащихся</p>
             <span>Узнать больше</span>
           </a>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <span class="section-kicker">вопросы</span>
+        <div class="section-header" data-reveal>
+          <h2>Частые вопросы о ProdEx</h2>
+          <p>Собрали ответы, которые помогают быстрее принять решение о запуске пилота или масштабировании.</p>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item">
+            <summary>Сколько времени занимает запуск ProdEx в компании?</summary>
+            <p>Первые команды начинают работу в течение 10–14 дней: мы подбираем сценарии, обучаем фасилитаторов и настраиваем
+              интеграции с текущими инструментами.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Можно ли адаптировать платформу под наши методологии?</summary>
+            <p>Да. Мы переносим ваши практики в цифровой формат, расширяем их AI-подсказками и настраиваем фирменную логику
+              принятия решений.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Какие метрики доступны руководителям?</summary>
+            <p>Руководители видят прогресс инициатив, распределение нагрузки, зрелость идей и конверсию гипотез в эффекты —
+              всё обновляется в режиме реального времени.</p>
+          </details>
         </div>
       </section>
 
